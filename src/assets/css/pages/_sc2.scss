@@ -57,11 +57,17 @@
             h3{
                 color: #fff;
                 font-size: 60px;
+                @media (max-width: 1024px) {
+                    font-size: 30px;
+                }
             }
             p{
                 color: #fff;
                 font-size: 32px;
                 padding-top: 22px;
+                @media (max-width: 1024px) {
+                    font-size: 16px;
+                }
             }
         }
         .link-container{
@@ -119,7 +125,7 @@
 .busi-motion{
     height: 200vw;
     overflow: clip;
-    background-color: rgb(26, 26, 26);
+    background-color: #000;
 }
 .main-inner{
     width: 100%;
@@ -160,4 +166,112 @@
     width: calc(-16px + 50vw);
     height: 100vh;
     background-position: center center;
+}
+
+
+@media (max-width: 1024px) {
+    .main-busi .busi-motion {
+        padding-top: 100px;
+        height: auto;
+        min-height: 820px;
+        padding-bottom: 75px;
+    }
+}
+@media (max-width: 1024px) {
+    .main-inner {
+        padding: 0px 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-inner {
+        padding: 0px 24px;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-motion .busi-con {
+        height: 100%;
+    }
+}
+@media (max-width: 1600px) {
+    .busi-motion .busi-con .busi-contents-wrap {
+        left: -136px;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-motion .busi-con .busi-contents-wrap {
+        width: 100%;
+        position: static;
+        transform: translateY(0px);
+        //margin-top: 40px;
+        white-space: normal;
+    }
+}
+.slick-slider .slick-track, .slick-slider .slick-list {
+    height: 100%;
+}
+@media (max-width: 1024px) {
+    .busi-motion .busi-con .busi-contents-wrap .slick-list {
+        overflow: visible;
+    }
+}
+@media (max-width: 1600px) {
+    .busi-contents-wrap .busi-content {
+        padding-right: 32px;
+        gap: 32px;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-contents-wrap .busi-content {
+        position: static;
+        padding-right: 0px;
+        margin: 0px 16px;
+        background-color: transparent;
+    }
+}
+@media (max-width: 768px) {
+    .busi-contents-wrap .busi-content {
+        margin: 0px 5px;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-contents-wrap .busi-content .busi-info {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-contents-wrap .busi-content .busi-thumb {
+        margin-top: 40px;
+        width: 100%;
+        min-height: 270px;
+        height: calc(-600px + 100vh);
+        border-radius: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .busi-contents-wrap .busi-content .busi-thumb {
+        height: 270px;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-contents-wrap .busi-content .busi-info {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-motion .busi-con .busi-menu-wrap {
+        display: none;
+    }
+}
+@media (max-width: 1024px) {
+    .busi-contents-wrap .busi-content.slick-current .busi-info {
+        opacity: 1;
+        transition: opacity 0.5s 0.3s;
+    }
 }
