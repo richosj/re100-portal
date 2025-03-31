@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./include/meta.html', {
+        "page_main": true
+    })
+</head>
+<body>
+    <!-- 전체 -->
+    <section id="wrap">
+    <div class="skip">
+        <a href="#header">주메뉴 바로가기</a>
+        <a href="#mainContainer">본문 바로가기</a>
+        <a href="#">하단 정보 바로가기</a>
+    </div>
+    @@include('./include/header.html', {
+        "page_main": true
+    })
+    @@include('./include/subheader.html', {
+        "page_main": true
+    })
+    
+    <div id="SubContainer" calss="SubContainer">
+        <div class="sub--wrap mb60">
+            <div class="sub--wrap--inner">
+                <div class="sub--ti">
+                    <h3>자주묻는 질문</h3>
+                    <div class="sub--ti--util">
+                        <button class="share"><span class="sr-only">공유</span></button>
+                        <button class="print"><span class="sr-only">인쇄</span></button>
+                    </div>
+                </div>
+                <div class="accordion question-wrap">
+                    <div class="accordion--item">
+                        <div class="accordion--button parents_toggle">
+                            <div class="accordion--ti--flex">
+                                <div class="accordion--ti--cont">
+                                    <div class="flex gap-8 flex-item-cetner">
+                                        <i class="item_q">Q</i>
+                                        <h3 class="fz19">자주묻는 질문</h3>
+                                    </div>
+                                </div>
+                                <div class="accordion--ti--arrow">
+                                    <span class="sr-only">화살표</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion--content" style="">
+                            <div class="accordion--content--body">                                                
+                                자주묻는 질문자주묻는 질문자주묻는 질문자주묻는 질문
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion--item">
+                        <div class="accordion--button parents_toggle">
+                            <div class="accordion--ti--flex">
+                                <div class="accordion--ti--cont">
+                                    <div class="flex gap-8 flex-item-cetner">
+                                        <i class="item_q">Q</i>
+                                        <h3 class="fz19">자주묻는 질문</h3>
+                                    </div>
+                                </div>
+                                <div class="accordion--ti--arrow">
+                                    <span class="sr-only">화살표</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion--content" style="">
+                            <div class="accordion--content--body">                                                
+                                자주묻는 질문자주묻는 질문자주묻는 질문자주묻는 질문
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion--item">
+                        <div class="accordion--button parents_toggle">
+                            <div class="accordion--ti--flex">
+                                <div class="accordion--ti--cont">
+                                    <div class="flex gap-8 flex-item-cetner">
+                                        <i class="item_q">Q</i>
+                                        <h3 class="fz19">자주묻는 질문</h3>
+                                    </div>
+                                </div>
+                                <div class="accordion--ti--arrow">
+                                    <span class="sr-only">화살표</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion--content" style="">
+                            <div class="accordion--content--body">                                                
+                                자주묻는 질문자주묻는 질문자주묻는 질문자주묻는 질문
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @@include('./include/footer.html', {
+        "page_main": true
+    })
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+node_modules
+node_modules/
+package-lock.json
+.history/
+dist/
+dist
+back
+.vscode
+*.mp4

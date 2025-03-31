@@ -1,0 +1,154 @@
+@import '../utils/var';
+@import '../utils/function';
+
+.footer{
+    width: 100%;
+    align-items: center;
+    background: #000;
+    &--family{
+        &--container{
+            display: flex;
+            justify-content: flex-end;
+            width: 144rem;
+            margin: 0 auto;    
+            padding: 1.2rem 0;
+            background: #000;
+            select{
+                height: 4rem;
+                border-radius: 2rem;
+                min-width: 24rem;
+            }
+            @include responsive(md){
+                width: 100%;
+                justify-content: center;
+            }
+        }
+	}
+    &--logo{
+        img{
+            @include responsive(md){
+                width: 50%;
+            }
+        }
+    }
+    .footer-sitemap{
+        background: #111111;
+        @include responsive(md){
+            display: none;
+        }
+        .footer-sitemap-inner{
+            width: 1440px;
+            margin: auto;
+            display: flex;
+            gap:3rem;
+            padding-top: 10rem;
+            padding-bottom: 6rem;
+        }
+        ul{
+            flex:1;
+            li{
+                &:first-child{
+                    strong{
+                        display: block;
+                        color:#ffffff;
+                        font-size: 2.1rem;
+                        padding-bottom: 3rem;
+                        margin-bottom: 3.5rem;
+                        border-bottom: 3px solid #2b316a;
+                    }
+                    
+                }
+                & + li{
+                    margin-bottom: 3rem;
+                    
+                }
+                a{
+                    position: relative;
+                    color:#717171;
+                    font-size: 1.7rem;
+                    transition: all .3s;
+                    &:hover{
+                        color:#fff;
+                    }
+                    &.foot-ico-link{
+                        &:after{
+                            position: absolute;
+                            right: -20px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            display: block;
+                            content:'';
+                            width: 14px;
+                            height: 15px;
+                            background-image: url('../images/ico/ico-foot-link.png');
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &--container{
+        display: flex;
+        align-items: center;
+        gap:8rem;
+        width: 144rem;
+        margin: 0 auto;
+        padding: 4rem 0 3rem ;
+        color:#717171;
+        background-repeat: no-repeat;
+        background-position: 0 center;
+        @include responsive(md){
+            flex-direction: column;
+            align-items: flex-start;
+            width: auto;
+            gap: 2.5rem;
+            margin: 0 4rem;
+        }
+    }
+    &--addr{
+        display: flex;
+        font-size: 1.7rem;
+        margin-bottom: 1.2rem;
+        @include responsive(md){
+            display: inline-block;
+            
+            *{
+                display: inline !important;
+                word-break: break-all;
+                font-size: 1.4rem;
+            }
+        }
+        dl{
+            display: flex;
+            color:#717171;
+            dt{
+                // color:#009FE3;
+                font-weight: bold;
+                margin-right: .5rem;
+                &.last-address{
+                    // color:#8C6E4A;
+                }
+            }
+            @include responsive(md){
+                flex-direction: column;
+            }
+            
+        }
+        span{
+            display: inline-block;
+            margin: 0 0.5rem;
+            color:#C6C6C6;
+            font-size: 1.5rem;
+            @include responsive(md){
+                margin: 0 0.2rem;
+            }
+        }
+    }
+    &--copy{
+        font-size: 1.5rem;
+        @include responsive(md){
+            font-size: 1.2rem;
+        }
+    }
+
+}

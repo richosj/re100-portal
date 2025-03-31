@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./include/meta.html', {
+        "page_main": true
+    })
+</head>
+<body>
+    <!-- 전체 -->
+    <section id="wrap">
+    <div class="skip">
+        <a href="#header">주메뉴 바로가기</a>
+        <a href="#mainContainer">본문 바로가기</a>
+        <a href="#">하단 정보 바로가기</a>
+    </div>
+    @@include('./include/header.html', {
+        "page_main": true
+    })
+    @@include('./include/subheader.html', {
+        "page_main": true
+    })
+    
+    <div id="SubContainer" calss="SubContainer">
+        <div class="sub--wrap mb60">
+            <div class="sub--wrap--inner">
+                <div class="sub--ti">
+                    <h3>Q&A</h3>
+                    <div class="sub--ti--util">
+                        <button class="share"><span class="sr-only">공유</span></button>
+                        <button class="print"><span class="sr-only">인쇄</span></button>
+                    </div>
+                </div>
+
+                <div class="board--wtite">
+                    <div class="board--wtite--body">                       
+                        <div class="">
+                            <dl class="form-type">
+                                <dt>
+                                    제목 <span class="red vct">*</span>
+                                </dt>
+                                <dd>
+                                    <input type="text" class="form-control block lg" placeholder="제목을 입력해주세요.">
+                                </dd>
+                            </dl>
+                        </div>
+                        <dl class="form-type mb18">
+                            <dt>
+                                내용 <span class="red vct">*</span>
+                            </dt>
+                            <dd>
+                                <div class="form-control txt-write" style="">
+                                    <textarea name="" id="" placeholder="세부내용을 입력해주세요."></textarea>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="dotted-box tac mb30">
+                        <p class="mb18">데이터를 선택하거나, 여기에 드래그 하세요.</p>
+                        <button type="button" class="btn dark-gray md">첨부파일 선택</button>
+                    </div>
+                    <div class="board--wtite--foot">
+                        <button class="btn md border-darkgray">취소</button>
+                        <button type="submit" class="btn md primary">등록</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    @@include('./include/footer.html', {
+        "page_main": true
+    })
+    </section>
+</body>
+
+</html>

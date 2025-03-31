@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./include/meta.html', {
+        "page_main": true
+    })
+</head>
+<body>
+    <!-- 전체 -->
+    <section id="wrap">
+    <div class="skip">
+        <a href="#header">주메뉴 바로가기</a>
+        <a href="#mainContainer">본문 바로가기</a>
+        <a href="#">하단 정보 바로가기</a>
+    </div>
+    @@include('./include/header.html', {
+        "page_main": true
+    })
+    @@include('./include/subheader.html', {
+        "page_main": true
+    })
+    
+    <div id="SubContainer" calss="SubContainer">
+        <div class="sub--wrap mb60">
+            <div class="sub--wrap--inner">
+                <div class="sub--ti">
+                    <h3>Q&A</h3>
+                    <div class="sub--ti--util">
+                        <button class="share"><span class="sr-only">공유</span></button>
+                        <button class="print"><span class="sr-only">인쇄</span></button>
+                    </div>
+                </div>
+
+                <div class="board-wrap mb30">
+                    <div class="board-viwer">
+                        <div class="board-viwer_header">
+                            <span class="title">[공지]</span>
+                            <h3>회원정보의 목적 외 이용 또는 제3자 제공</h3>
+                            <span class="data">2023-12-12</span>
+                        </div>
+                        <div class="board-viwer_text">
+                            <p>
+                                Q&A 상세페이지 입니다.<br>
+                                Q&A 상세페이지 입니다.<br>
+                                Q&A 상세페이지 입니다.<br>
+                                Q&A 상세페이지 입니다.<br>
+                                Q&A 상세페이지 입니다.<br>
+                                Q&A 상세페이지 입니다.<br>
+                                Q&A 상세페이지 입니다.<br>
+                            </p>
+                        </div>
+                        <div class="board-viwer-coment">
+                            <div class="board-viwer-coment-headr">
+                                <h3>관리자 답변</h3>
+                                <span class="data">2023-12-12</span>
+                            </div>
+                            <p>
+                                관리자 답변 입니다.<br>
+                                관리자 답변 입니다.<br>
+                                관리자 답변 입니다.<br>
+                                관리자 답변 입니다.<br>
+                            </p>
+                        </div>
+                        <div class="board-nav">
+                            <a href="#" class="board-nav_prev">
+                            <b>이전글</b>
+                            <strong>이전 글 입니다.</strong>
+                            <span>2023-12-12</span>
+                        </a>
+                        <a href="#" class="board-nav_next">
+                            <b>다음글</b>
+                            <strong>다음 글 입니다.</strong>
+                            <span>2023-12-12</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="board-btn">
+                <a href="" class="btn md primary">목록</a>
+            </div>
+        </div>
+    </div>
+    
+    @@include('./include/footer.html', {
+        "page_main": true
+    })
+    </section>
+</body>
+
+</html>

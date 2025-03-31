@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./include/meta.html', {
+        "page_main": true
+    })
+</head>
+<body>
+    <!-- 전체 -->
+    <section id="wrap">
+    <div class="skip">
+        <a href="#header">주메뉴 바로가기</a>
+        <a href="#mainContainer">본문 바로가기</a>
+        <a href="#">하단 정보 바로가기</a>
+    </div>
+    @@include('./include/header.html', {
+        "page_main": true
+    })
+    @@include('./include/subheader.html', {
+        "page_main": true
+    })
+    
+    <div id="SubContainer" calss="SubContainer">
+        <div class="sub--wrap mb60">
+            <div class="sub--wrap--inner">
+                <div class="sub--ti">
+                    <h3>Q&A</h3>
+                    <div class="sub--ti--util">
+                        <button class="share"><span class="sr-only">공유</span></button>
+                        <button class="print"><span class="sr-only">인쇄</span></button>
+                    </div>
+                </div>
+                
+                <div class="board-wrap">
+                    <div class="board-list-text">
+                        <table>
+                            <colgroup>
+                                <col style="width: 15%;">
+                                <col style="width: auto;">
+                                <col style="width: 20%;">
+                                <col style="width: 15%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">번호</th>
+                                    <th scope="col">제목</th>
+                                    <th scope="col">등록일</th>
+                                    <th scope="col">조회수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-title="번호" class="mo-hidden">번호</td>
+                                    <td data-title="제목" class="item_list-title"><a href="#" class="cs-link-text"><span>공지사항입니다.</span></a></td>
+                                    <td data-title="등록일">2024.01.01</td>
+                                    <td data-title="조회수">10</td>
+                                </tr>
+                                @@for(var i = 0; i < 10; i++){
+                                <tr>
+                                    <td data-title="번호" class="mo-hidden">${i}</td>
+                                    <td data-title="제목" class="item_list-title"><a href="#" class="cs-link-text"><span>공지사항입니다.</span></a></td>
+                                    <td data-title="등록일">2024.01.01</td>
+                                    <td data-title="조회수">10</td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="board-list-bottom">
+                        @@include('./include/paging.html')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @@include('./include/footer.html', {
+        "page_main": true
+    })
+    </section>
+</body>
+
+</html>
