@@ -18,6 +18,9 @@
         h2{
             color: #fff;
             font-size: 60px;
+            @media (max-width:1450px) {
+                font-size: 40px;
+            }
             @include responsive(md){
                 font-size: 30px;
             }
@@ -27,6 +30,9 @@
             line-height: 1.34;
             font-size: 32px;
             padding-top: 10px;
+            @media (max-width:1450px) {
+                font-size: 18px;
+            }
             @include responsive(md){
                 font-size: 14px;
             }

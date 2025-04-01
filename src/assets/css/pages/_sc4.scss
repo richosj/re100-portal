@@ -17,6 +17,9 @@
     h2{
         color: #fff;
         font-size: 60px;
+        @media (max-width:1450px) {
+            font-size: 40px;
+        }
         @include responsive(md){
             font-size: 30px;
         }
@@ -26,13 +29,16 @@
         align-items: flex-end;
         justify-content: space-between;
         padding-top: 10px;
-        @include responsive(md){
+        @media (max-width:1440px) {
             display: block;
         }
         .text{
             color: #c6c6c6;
             line-height: 1.34;
             font-size: 32px;
+            @media (max-width:1440px) {
+                font-size: 18px;
+            }
             @include responsive(md){
                 font-size: 12px;
             }
@@ -41,6 +47,9 @@
             display: inline-flex;
             align-items: center;
             gap: 0 60px;
+            @media (max-width:1440px) {
+                padding-top: 30px;
+            }
             @include responsive(md){
                 display: grid;
                 gap: 0;
@@ -55,6 +64,9 @@
                 align-items: center;
                 transition: all 0.25s;
                 gap:0 13px;
+                @media (max-width:1440px) {
+                    font-size: 16px;
+                }
                 @include responsive(md){
                     font-size: 12px;
                     gap: 0 6px;
@@ -87,7 +99,7 @@
     display: flex;
     gap: 0 2.1%;
     padding-top: 80px;
-    @include responsive(md){
+    @media (max-width:1024px) {
         display: block;
         padding-top: 10px;
         gap: 0;
@@ -101,7 +113,7 @@
                 color: #fff;
             }
         }
-        @include responsive(md){
+        @media (max-width:1024px) {
             width: 100%;
             .card > a{
                 height: auto;
@@ -111,14 +123,12 @@
                 .thumb{
                     width: 40%;
                 }
-                @include responsive(md){
-                    strong,
-                    div{
-                        text-align: left;
-                    }
-                    .detail{
-                        strong{padding-top: 0;}
-                    }
+                strong,
+                div{
+                    text-align: left;
+                }
+                .detail{
+                    strong{padding-top: 0;}
                 }
             }
         }
@@ -140,11 +150,13 @@
                 padding-bottom: 52.25%;
                 overflow: hidden;
                 border-radius: 12px;
+                @media (max-width:1024px) {
+                    padding-bottom: 22.25%;
+                }
             }
             .detail{
                 text-align: center;
                 color: #000;
-                
                 strong{
                     display: block;
                     font-size: 25px;
@@ -173,7 +185,8 @@
         background-color: #222222;
         border-radius: 12px;
         overflow: hidden;
-        @include responsive(md){
+        @media (max-width:1024px) {
+            margin-top: 20px;
             width: 100%;
             height: auto;
             padding-bottom: 20px;

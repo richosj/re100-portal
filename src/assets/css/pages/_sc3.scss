@@ -1,6 +1,6 @@
 
 .sc3{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -11,6 +11,9 @@
         text-align: center;
         color: #fff;
         font-size: 80px;
+        @media (max-width:1450px) {
+            font-size: 60px;
+        }
         @include responsive(md){
             font-size: 40px;
         }
@@ -19,6 +22,9 @@
         text-align: center;
         color: #fff;
         font-size: 60px;
+        @media (max-width:1450px) {
+            font-size: 40px;
+        }
         @include responsive(md){
             font-size: 30px;
             padding-top: 20px;
@@ -48,6 +54,11 @@
             height: 210px;
             overflow: hidden;
             transition: all 0.25s;
+            will-change: transform, opacity;
+            backface-visibility: hidden; /* 부드럽게 */
+            transform: translateY(0); /* 초기값 명시 */
+            opacity: 1;
+
             @include responsive(md){
                 height: auto;
                 display: flex;
@@ -96,7 +107,10 @@
             }
             &:hover,
             &:focus{
-                transform: translateY(-40px);
+                transform: translateY(-20px);
+                @media (min-width:1000px) {
+                    border-radius: 160px 4px 160px 4px;
+                }
                 @include responsive(md){
                     transform: translateY(0px);
                 }

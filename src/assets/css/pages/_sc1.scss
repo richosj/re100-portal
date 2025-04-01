@@ -13,41 +13,74 @@
         display: block;
     }
 }
-.sc1{
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    .image{
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: url(../images/main/main-visual-01.png) no-repeat 50% 50%;
-        background-size: cover;
-    }
-    .text{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        z-index: 2;
-        span{
-            font-size: 8rem;
-            color: #fff;
-            font-weight: 700;
-            white-space: nowrap;
+.sc1 {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    span {
+      font-size: 80px;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      text-align: center;
+      white-space: nowrap;
+      opacity: 0;
+      filter: blur(10px);
+      transform: scale(1.2);
+      transition: all 1.2s ease-out;
+      @media (max-width:1450px) {
+        font-size: 60px;
+      }
+      @include responsive(md){
+        font-size: 40px;
+      }
+      em{
+        display: block;
+        font-size: 60px;
+        font-weight: 700;
+        @media (max-width:1450px) {
+            font-size: 40px;
+            margin-top: 20px;
         }
         @include responsive(md){
-            span{
-                font-weight: 800;
-                font-size: 4rem;
-            }
-            b{
-                display: block;
-                text-align: center;
-                font-weight: 700;
-            }
+            font-size: 30px;
+        }
+      }
+      b, em {
+        opacity: 0.85;
+      }
+      @include responsive(md){
+        b{
+            display: block;
+        }
+      }
+      
+    }
+  }
+
+  &.section-1, &.section-2 {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    will-change: background-position, background-size;
+  }
+
+  &.section-1 {
+    background-image: url('../images/main/main-visual-01.png');
+  }
+  &.section-2 {
+    background-image: url('../images/main/main-visual-02.png');
+    span{
+        .text span {
+            transform: scale(1.2) translateY(30px);
         }
     }
+  }
 }

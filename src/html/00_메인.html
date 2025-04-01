@@ -164,10 +164,16 @@
     </aside>
 
     <main class="main">
-        <section class="section sc1">
-            <div class="image"></div>
+        <section class="section sc1 section-1">
+            <!-- <div class="image"></div> -->
             <div class="text">
                 <span>오래된 미래, <b>기후위기</b></span>
+            </div>
+        </section>
+        <section class="section sc1 section-2">
+            <!-- <div class="image"></div> -->
+            <div class="text">
+                <span>경기기후플랫폼 <em>선명한 데이터기반의 <br class="mobile-block">기후위기 대응 </em></span>
             </div>
         </section>
         <!-- e: sc1 -->
@@ -324,6 +330,8 @@
                             </div>
                             <!-- e: busi04 -->
                         </div>
+
+                        <div class="slide-dot-wrap"></div>
                     </div>
                 </div>
 
@@ -500,7 +508,9 @@
     
     <footer id="footer" class="footer">
         <div class="footer-sitemap">
+            <h3>기후위기를 기회로, 경기기후플랫폼</h3>
             <div class="footer-sitemap-inner">
+                
                 <ul>
                     <li><strong>탄소</strong></li>
                     <li><a href="#">경기도 기후정책</a></li>
@@ -587,7 +597,61 @@
 
 
     <script>
-        gsap.registerPlugin(ScrollTrigger);
+        
+
+        // ✨ section-1: 텍스트 등장
+        gsap.to(".sc1.section-1 .text span", {
+        scrollTrigger: {
+            trigger: ".sc1.section-1",
+            start: "top center",
+        },
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 1.8,
+        ease: "power3.out",
+        });
+
+        // ✍️ section-2: 텍스트 등장
+        gsap.to(".sc1.section-2 .text span", {
+        scrollTrigger: {
+            trigger: ".sc1.section-2",
+            start: "top 70%",
+        },
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        });
+        gsap.from(".sc3 h2, .sc3 h3", {
+            opacity: 0,
+            scale: 0.95,
+            y: 20,
+            duration: 1.2,
+            ease: "power4.out",
+            delay: 0.2,
+        });
+        const targets = document.querySelectorAll(".link-list a");
+        console.log("a tag targets:", targets);
+
+        targets.forEach((el, i) => {
+        gsap.from(el, {
+            scrollTrigger: {
+            trigger: el,
+            start: "top 95%",
+            scrub: true,
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out",
+        });
+        });
+
+
+
         ScrollTrigger.matchMedia({
             "(min-width: 1024px)": () => {
                 const ani1 = gsap.timeline();
@@ -608,6 +672,10 @@
                 $('.busi-menu-wrap button').on('click',function() {
                     var i = $(this).index();
 
+                    $(this).attr('aria-selected' , true)
+                    .siblings('button')
+                    .attr('aria-selected' , false);
+
                     if(i==0) $('html, body').stop().animate({scrollTop: $('.busi-motion').offset().top}, 1000);
                     else if (i==1) gsap.to(window, {duration: 1, scrollTo: ani1.scrollTrigger.labelToScroll('sec')});
                     else if (i==2) gsap.to(window, {duration: 1, scrollTo: ani1.scrollTrigger.labelToScroll('thi')});
@@ -616,38 +684,35 @@
             }
         })
 
-
-        
-        
-
         const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 'auto',
-        spaceBetween: 15,
-        centeredSlides: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-            grabCursor: true,
-        },
-        breakpoints: {
-            769: {
-                spaceBetween: 30,
-            }
-        },
-        pagination: {
-            el: '.custom-pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-            return `<span class="${className}"></span>`;
+            loop: true,
+            slidesPerView: 'auto',
+            spaceBetween: 15,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                grabCursor: true,
             },
-        },
+            breakpoints: {
+                769: {
+                    spaceBetween: 30,
+                }
+            },
+            pagination: {
+                el: '.custom-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                return `<span class="${className}"></span>`;
+                },
+            },
         });
         busiSlide();
 
         $(window).on('resize',function() {
             busiSlide()
-
+            $('.busi-menu-wrap button').attr('aria-selected' , false)
+            $('.busi-menu-wrap button').eq(0).attr('aria-selected' , true)
         })
 
         function busiSlide() {
@@ -673,12 +738,16 @@
             if($(document).width()>1024) {
                 $('.busi-contents-wrap .busi-content').each(function(i) {
                     if ($(window).scrollTop() + $(window).height() > $('.busi-contents-wrap .busi-content').eq(i).offset().left + $(window).scrollTop()) {
-                        $('.busi-motion .busi-con .busi-menu-wrap li').removeClass('is-active');
-                        $('.busi-motion .busi-con .busi-menu-wrap li').eq(i).addClass('is-active');
+                        $('.busi-menu-wrap button').attr('aria-selected' , false)
+                        $('.busi-menu-wrap button').eq(i).attr('aria-selected' , true)
                     }
                 })
             }
         }
+
+        $(window).on('scroll',function() {
+            busiSc()
+        })
 
 
         // 재생 / 일시정지
@@ -695,6 +764,86 @@
         }
         isPaused = !isPaused;
         });
+
+        function headers() {
+        var header = document.querySelector('.main-header');
+        var breadcrumb = document.querySelector('.breadcrumb');
+        var breadcrumbTop = header.offsetHeight;
+        var lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        // 스크롤 방향에 따라 헤더 상태 업데이트
+        function updateScrollDirection() {
+            var currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            var isScrollingDown = currentScrollY > lastScrollY;
+            
+            // body에 mm-open 클래스가 있으면 항상 header에 'up' 클래스 추가
+            if (document.body.classList.contains('mm-open')) {
+                header.classList.add('up');
+                lastScrollY = currentScrollY;
+                return; // mm-open 상태에서는 나머지 로직을 건너뜁니다.
+            }
+            
+            if (header.classList.contains('_sub') && breadcrumb) {
+                if (currentScrollY >= breadcrumbTop) {
+                    if (isScrollingDown) {
+                        header.classList.add('hide');
+                        header.classList.remove('up');
+                    } else {
+                        header.classList.remove('hide');
+                        if (currentScrollY > 0) {
+                            header.classList.add('up');
+                        } else {
+                            header.classList.remove('up');
+                        }
+                    }
+                } else {
+                    header.classList.remove('hide', 'up');
+                }
+            } else {
+                if (isScrollingDown) {
+                    header.classList.add('hide');
+                    header.classList.remove('up');
+                } else {
+                    header.classList.remove('hide');
+                    if (currentScrollY > 0) {
+                        header.classList.add('up');
+                    } else {
+                        header.classList.remove('up');
+                    }
+                }
+            }
+            lastScrollY = currentScrollY;
+        }
+
+        // 초기 스크롤 상태 반영
+        document.addEventListener('DOMContentLoaded', function () {
+            lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // body에 mm-open 클래스가 있는 경우 'up' 클래스를 무조건 추가
+            if (document.body.classList.contains('mm-open')) {
+                header.classList.add('up');
+            } else if (header.classList.contains('_sub') && breadcrumb) {
+                var _breadcrumbTop = breadcrumb.getBoundingClientRect().top + window.scrollY;
+                if (lastScrollY >= _breadcrumbTop) {
+                    header.classList.add('up', 'hide');
+                } else {
+                    header.classList.remove('up', 'hide');
+                }
+            } else {
+                if (lastScrollY > 50) { 
+                    header.classList.add('up', 'hide');
+                } else {
+                    header.classList.remove('up', 'hide');
+                }
+            }
+        });
+
+        // 스크롤 이벤트 리스너 추가
+        window.addEventListener('scroll', updateScrollDirection);
+    }
+
+    headers();
+
 
         var smoothscroll = {
         passive: function passive() {

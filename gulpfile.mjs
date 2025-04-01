@@ -1,22 +1,23 @@
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import * as sass from 'sass';
-import gulpSass from 'gulp-sass';
-import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
-import postCss from 'gulp-postcss';
-import rename from 'gulp-rename';
 import browserSync from 'browser-sync';
+import cssnano from 'cssnano';
+import { deleteSync } from 'del';
+import gulp from 'gulp';
+import babel from 'gulp-babel';
+import cached from 'gulp-cached';
+import cleanCss from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import fileInclude from 'gulp-file-include';
-import cssnano from 'cssnano';
-import cached from 'gulp-cached';
-import { deleteSync } from 'del';
-import cleanCss from 'gulp-clean-css';
-import babel from 'gulp-babel';
+import plumber from 'gulp-plumber';
+import postCss from 'gulp-postcss';
+import rename from 'gulp-rename';
+import gulpSass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import * as sass from 'sass';
 
 const sassCompiler = gulpSass(sass);
 const server = browserSync.create();
+
 
 const paths = {
   includeHtml: 'src/html/include/**/*.html',
@@ -156,8 +157,8 @@ function vendors() {
 
 // Images task
 function images() {
-  return gulp.src(paths.images)
-    .pipe(gulp.dest(paths.distImages));
+  return gulp.src([`${paths.images.replace(/\\/g, '/')}/**/*.{jpg,jpeg,png,svg}`], { encoding: false })
+  .pipe(gulp.dest(paths.distImages));
 }
 
 // Fonts task
@@ -193,3 +194,4 @@ const build = gulp.series(clean, initialBuild, gulp.parallel(html, gulp.series(s
 export default gulp.series(build, serve);
 
 export { clean };
+
