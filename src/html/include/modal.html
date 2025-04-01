@@ -1,6 +1,6 @@
 
 @@if(page__name == '환경스코어'){
-    <!-- //입력방식변경 -->
+    <!-- //환경스코어 -->
     <div id="modal-score" class="modal modal-wrap modal-wrap-dimmed" style="display: block;">
         <div class="modal--inner">
             <div class="modal--head">
@@ -71,6 +71,157 @@
                             차트
                         </dd>
                     </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@@if(page__name == '기상특보'){
+    <!-- //기상특보 -->
+    <div id="modal-weather-report" class="modal modal-wrap modal-wrap-dimmed full">
+        <div class="modal--inner">
+            <div class="modal--head">
+                <div class="modal--head--inner">
+                    <h3>기상특보</h3>
+                </div>
+                <div class="modal--head--util">
+                    <button type="button" class="modal--close close-btn btn-black"></button>
+                </div>
+            </div>
+            
+            <div class="modal--content p0">
+                <div class="btn-tab-wrap02 flex-end">
+                    <button type="button" class="single_toggle">강풍</button>
+                    <button type="button" class="single_toggle">풍량</button>
+                    <button type="button" class="single_toggle">호우</button>
+                    <button type="button" class="single_toggle">대설</button>
+                    <button type="button" class="single_toggle">건조</button>
+                    <button type="button" class="single_toggle">폭풍해일</button>
+                    <button type="button" class="single_toggle">한파</button>
+                    <button type="button" class="single_toggle">태풍</button>
+                    <button type="button" class="single_toggle">황사</button>
+                    <button type="button" class="single_toggle">폭염</button>
+                </div>
+
+                <div class="modal-report-flex">
+                    <div class="modal-report-item ">
+                        <h3>건조주의보 발효 중</h3>
+                        <div class="modal-report-time-flex caution">
+                            <dl>
+                                <dt>발표시각</dt>
+                                <dd>2월 24일 (월) 16:00</dd>
+                            </dl>
+                            <dl>
+                                <dt>발효시각</dt>
+                                <dd>2월 24일 (월) 16:00 이후</dd>
+                            </dl>
+                        </div>
+                        <div class="modal-report-city">
+                            수원시, 용인시, 오산시, 오산시, 평택시, 화성시, 시흥시, 여주시
+                        </div>
+                    </div>
+                    <div class="modal-report-item ">
+                        <h3>건조경보 발효 중</h3>
+                        <div class="modal-report-time-flex warning">
+                            <dl>
+                                <dt>발표시각</dt>
+                                <dd>2월 24일 (월) 16:00</dd>
+                            </dl>
+                            <dl>
+                                <dt>발효시각</dt>
+                                <dd>2월 24일 (월) 16:00 이후</dd>
+                            </dl>
+                        </div>
+                        <div class="modal-report-city">
+                            수원시, 용인시, 오산시, 오산시, 평택시, 화성시, 시흥시, 여주시
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@@if(page__name == '발령정보'){
+    <!-- //기상특보 -->
+    <div id="modal-Announce-Info" class="modal modal-wrap modal-wrap-dimmed full">
+        <div class="modal--inner">
+            <div class="modal--head">
+                <div class="modal--head--inner">
+                    <h3>발령정보</h3>
+                </div>
+                <div class="modal--head--util">
+                    <button type="button" class="modal--close close-btn btn-black"></button>
+                </div>
+            </div>
+            
+            <div class="modal--content p0">
+                <div class="btn-tab-wrap02 flex-end">
+                    <button type="button" class="single_toggle">초미세먼지(PM2.5)</button>
+                    <button type="button" class="single_toggle">미세먼지(PM10)</button>
+                    <button type="button" class="single_toggle">오존 (O3)</button>
+                </div>
+
+                <div class="criteria-box active">
+                    <div class="parent_toggle criteria-box-basics">
+                        <span>발령기준</span> <button type="button" class="criteria-box-btn"></button>        
+                    </div>
+                    <div class="criteria-box-active">
+                        <h3>미세먼지경보 발령기준</h3>
+                        <dl>
+                            <dt>· 발령기준 </dt>
+                            <dd>
+                                <div class="table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>경보등급</th>
+                                                <th>주의보<span style="background: #ffff00;"></span></th>
+                                                <th>경보<span style="background: #ff0000;"></span></th>
+                                                <th>중대경보<span style="background: #800080;"></span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>경보농도(ppm)</td>
+                                                <td>0.12ppm 이상</td>
+                                                <td>0.3ppm 이상</td>
+                                                <td>0.5ppm 이상</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>· 해제기준 </dt>
+                            <dd>
+                                <div class="table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>경보등급</th>
+                                                <th>주의보<span style="background: #ffff00;"></span></th>
+                                                <th>경보<span style="background: #ff0000;"></span></th>
+                                                <th>중대경보<span style="background: #800080;"></span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <tr>
+                                                    <td>경보농도(ppm)</td>
+                                                    <td>0.12ppm 이상</td>
+                                                    <td>0.3ppm 이상</td>
+                                                    <td>0.5ppm 이상</td>
+                                                </tr>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>

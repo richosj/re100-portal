@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./include/meta.html', {
+        "page_main": true
+    })
+</head>
+<body>
+    <!-- 전체 -->
+    <section id="wrap">
+    <div class="skip">
+        <a href="#header">주메뉴 바로가기</a>
+        <a href="#mainContainer">본문 바로가기</a>
+        <a href="#">하단 정보 바로가기</a>
+    </div>
+    @@include('./include/header.html', {
+        "page_main": true
+    })
+    @@include('./include/subheader.html', {
+        "page_main": true
+    })
+    
+    <div id="SubContainer" calss="SubContainer">
+        <div class="sub--wrap">
+            <div class="sub--wrap--inner">
+                <div class="sub--ti">
+                    <h3>환경스코어</h3>
+                    <div class="sub--ti--util">
+                        <button class="share"><span class="sr-only">공유</span></button>
+                        <button class="print"><span class="sr-only">인쇄</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sub--wrap--inner">
+                <ul class="tabs mb40" data-js="tabNav">
+                    <li class="tab-item">
+                        <button class="" type="button" data-id="tabnav1">
+                            전력공급현황
+                        </button>
+                    </li>
+                    <li class="tab-item active">
+                        <button class="" type="button" data-id="tabnav2">
+                            에너지 소비 현황
+                        </button>
+                    </li>
+                    <li class="tab-item">
+                        <button class="" type="button" data-id="tabnav3">
+                            태양광 잠재량
+                        </button>
+                    </li>
+                    <li class="tab-item">
+                        <button class="" type="button" data-id="tabnav4">
+                            태양광 설비현황
+                        </button>
+                    </li>
+                    <li class="tab-item">
+                        <button class="" type="button" data-id="tabnav5">
+                            에너지 바우처 발급 현황
+                        </button>
+                    </li>
+                </ul> 
+            </div>
+
+            <!-- 전력공급현황 start-->
+            <div data-toggle-id="tabnav1" class="toggle-hidden">
+                
+            </div>
+            <!-- 전력공급현황 end-->
+
+            <!-- 에너지 소비 현황  start-->
+            <div data-toggle-id="tabnav2" class="">
+                <div class="sub--wrap--inner">
+                    <div class="sub--Info--wrap">
+                        <div class="sub--Info--box mb80">
+                            <h3 class="fz25 mb20">에너지 소비 현황</h3>
+                            <p class="fz19">
+                                에너지 소비 현황
+                            </p>
+                            <div class="btn-wrap">
+                                <a href="">에너지 소비 현황 바로가기<i class="icon ico-link-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub--Data--wrap">
+                    <div class="sub--wrap--inner">
+                        <div class="">
+                            <h3 class="fz25 mb18">경기도 환경스코어</h3>
+                            <p class="mb30 fz17">각 시군별 기본 현황 및 에너지 소비 현황의 과거추이를 살펴봅니다.</p>
+                            <div class="data--box--flex">
+                                <div class="data--box--flex--left data--box">
+
+                                </div>
+                                <div class="data--box--flex--right data--box boarder">
+                                    <div class="data--box--head mb20">
+                                        <h4>경기도 화성시</h4>
+                                    </div>
+                                    <div class="board-box-4">
+                                        <div class="board-box-item h260">
+                                            <h4>기본현황</h4>
+                                            <ul class="flex-box md box-grid">
+                                                <li>
+                                                    <dl>
+                                                        <dt>
+                                                            면적
+                                                            <span class="year">(2022)</span>
+                                                        </dt>
+                                                        <dd>10,199<span>km<sup>2</sup></span></dd>
+                                                    </dl>
+                                                </li> 
+                                                <li>
+                                                    <dl>
+                                                        <dt>
+                                                            행정구역
+                                                            <span class="year">(2022)</span>
+                                                        </dt>
+                                                        <dd>31<span>개</span></dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl>
+                                                        <dt>
+                                                            면적
+                                                            <span class="year">(2022)</span>
+                                                        </dt>
+                                                        <dd>1410<span>만명</span></dd>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl>
+                                                        <dt>
+                                                            면적
+                                                            <span class="year">(2022)</span>
+                                                        </dt>
+                                                        <dd>1,299.4<span>명/k/m2</span></dd>
+                                                    </dl>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="board-box-item h260">
+                                            <h4>1인당 및 GRDP당 에너지 사용량</h4>
+                                            <div class="chart-box none-board chart-box176">
+
+                                            </div>
+                                        </div>
+                                        <div class="board-box-item h335">
+                                            <h4>부문별 에너지 사용량</h4>
+                                            <div class="btn-tab-wrap mb12">
+                                                <button type="button" class="plural_on active">산업</button>
+                                                <button type="button" class="plural_on">수송</button>
+                                                <button type="button" class="plural_on">가정</button>
+                                                <button type="button" class="plural_on">상업</button>
+                                                <button type="button" class="plural_on">공공</button>
+                                            </div>
+                                            <div class="chart-box none-board chart-box209">
+
+                                            </div>
+                                        </div>
+                                        <div class="board-box-item h335">
+                                            <h4>에너지원별 에너지 사용량</h4>
+                                            <div class="btn-tab-wrap mb12">
+                                                <button type="button" class="plural_on active">석유</button>
+                                                <button type="button" class="plural_on">가스</button>
+                                                <button type="button" class="plural_on">전력</button>
+                                                <button type="button" class="plural_on">열</button>
+                                                <button type="button" class="plural_on">신재생 및 기타</button>
+                                            </div>
+                                            <div class="chart-box none-board chart-box209">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 에너지 소비 현황  end-->
+
+            <!-- 태양광 잠재량 start-->
+            <div data-toggle-id="tabnav3" class="toggle-hidden">
+                
+            </div>
+            <!-- 태양광 잠재량  end-->
+
+            <!-- 태양광 설비현황 start-->
+            <div data-toggle-id="tabnav4" class="toggle-hidden">
+            
+            </div>
+            <!-- 태양광 설비현황  end-->
+
+            <!-- 에너지 바우처 발급 현황 start-->
+            <div data-toggle-id="tabnav5" class="toggle-hidden">
+                <div class="sub--wrap--inner">
+                    <div class="sub--Info--wrap">
+                        <div class="sub--Info--box mb80">
+                            <h3 class="fz25 mb20">에너지 바우처란?</h3>
+                            <p class="fz19">
+                                에너지 사용이 어려운 가구를 위해 전기, 가스 난방비 등을 지원하는 국가 정책입니다.<br>
+                                신청은 가까운 주민센터나 공식 웹사이트에서 가능하며, 동·하절기 에너지 지원을 받을 수 있습니다. 
+                            </p>
+                            <div class="btn-wrap">
+                                <a href="">에너지 바우처 바로가기<i class="icon ico-link-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub--Data--wrap">
+                    <div class="sub--wrap--inner">
+                        <h3 class="fz25 mb35">경기도 환경스코어</h3>
+                        <div class="data--box--flex">
+                            <div class="data--box--flex--left">
+                                <div class="data--box data--box--row row">
+                                    <dl class="dl-felx">
+                                        <dt>기간 선택</dt>
+                                        <dd>
+                                            <select name="" id="" class="form-control lg">
+                                                <option value="">2024</option>
+                                            </select>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="data--box data--box--row">
+                                    <div class="data--box--head mb12">
+                                        <h4>경기도<span class="green">수원시 팔달구</span></h4>
+                                    </div>
+                                    <div class="chart-box chart-box465">
+                                        데이터 영역
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data--box--flex--right data--box">
+                                <div class="data--box--head mb12">
+                                    <h4>발급현황</h4>
+                                    <div class="data--box--util--txt">
+                                        <span class="active">발급가구 수</span>
+                                        <span>발급액 (백만원)</span>
+                                    </div>
+                                </div>
+                                <div class="chart-box chart-box623">
+                                    데이터 영역
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 에너지 바우처 발급 현황  end-->
+        </div>
+    </div>
+    
+    @@include('./include/footer.html', {
+        "page_main": true
+    })
+    </section>
+</body>
+
+</html>

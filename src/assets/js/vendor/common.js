@@ -83,6 +83,9 @@ $(function() {
     $('.plural_on').click(function() {
         $(this).addClass('active').siblings().removeClass('active');
     });
+    $('.parent_toggle').click(function() {
+        $(this).parent().toggleClass('active');
+    });
     
     $('.parents_toggle').click(function() {
         $(this).parent().toggleClass('active').siblings().removeClass('active');

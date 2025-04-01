@@ -258,6 +258,83 @@ document.addEventListener("DOMContentLoaded", () => {
     // 헤더 스크롤 이벤트
     // ==========================================
 
-    
+    function headers() {
+        var header = document.querySelector('.main-header');
+        var breadcrumb = document.querySelector('.breadcrumb');
+        var breadcrumbTop = header.offsetHeight;
+        var lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        // 스크롤 방향에 따라 헤더 상태 업데이트
+        function updateScrollDirection() {
+            var currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            var isScrollingDown = currentScrollY > lastScrollY;
+            
+            // body에 mm-open 클래스가 있으면 항상 header에 'up' 클래스 추가
+            if (document.body.classList.contains('mm-open')) {
+                header.classList.add('up');
+                lastScrollY = currentScrollY;
+                return; // mm-open 상태에서는 나머지 로직을 건너뜁니다.
+            }
+            
+            if (header.classList.contains('_sub') && breadcrumb) {
+                if (currentScrollY >= breadcrumbTop) {
+                    if (isScrollingDown) {
+                        header.classList.add('hide');
+                        header.classList.remove('up');
+                    } else {
+                        header.classList.remove('hide');
+                        if (currentScrollY > 0) {
+                            header.classList.add('up');
+                        } else {
+                            header.classList.remove('up');
+                        }
+                    }
+                } else {
+                    header.classList.remove('hide', 'up');
+                }
+            } else {
+                if (isScrollingDown) {
+                    header.classList.add('hide');
+                    header.classList.remove('up');
+                } else {
+                    header.classList.remove('hide');
+                    if (currentScrollY > 0) {
+                        header.classList.add('up');
+                    } else {
+                        header.classList.remove('up');
+                    }
+                }
+            }
+            lastScrollY = currentScrollY;
+        }
+
+        // 초기 스크롤 상태 반영
+        document.addEventListener('DOMContentLoaded', function () {
+            lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // body에 mm-open 클래스가 있는 경우 'up' 클래스를 무조건 추가
+            if (document.body.classList.contains('mm-open')) {
+                header.classList.add('up');
+            } else if (header.classList.contains('_sub') && breadcrumb) {
+                var _breadcrumbTop = breadcrumb.getBoundingClientRect().top + window.scrollY;
+                if (lastScrollY >= _breadcrumbTop) {
+                    header.classList.add('up', 'hide');
+                } else {
+                    header.classList.remove('up', 'hide');
+                }
+            } else {
+                if (lastScrollY > 50) {
+                    header.classList.add('up', 'hide');
+                } else {
+                    header.classList.remove('up', 'hide');
+                }
+            }
+        });
+
+        // 스크롤 이벤트 리스너 추가
+        window.addEventListener('scroll', updateScrollDirection);
+    }
+
+    headers();
 });
 

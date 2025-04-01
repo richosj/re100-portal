@@ -89,6 +89,13 @@
 
         }
     }
+    &.full{
+        .modal--content{
+            @include responsive(md){
+                height: calc(100vh - 4rem) !important;
+            }
+        }
+    }
 }
 
 #modal-score{
@@ -140,5 +147,236 @@
     dd{
         background: #f8f8f8;
         font-size: 1.2rem;
+    }
+}
+
+#modal-weather-report{
+    .modal--inner{
+        width: 100%;
+        max-width: 995px;
+    }
+    .modal--content{
+        position: relative;
+        height: 60rem;
+        &.p0{
+            padding: 0;
+        }
+        .btn-tab-wrap02{
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+        }
+        .modal-report-flex{
+            position: absolute;
+            bottom: 0rem;
+            left: 0rem;
+            margin: 2rem;
+            width: calc(100% - 4rem);
+            display: flex;
+            gap:2rem;
+            @include responsive(md){
+                gap:1rem;
+                flex-direction: column;
+            }
+            .modal-report-item{
+                flex:1;
+                border: 1px solid #c6c6c6;
+                border-radius: .6rem;
+                padding: 2rem;
+                @include responsive(md){
+                    padding: 1rem;
+                }
+            }
+            h3{
+                color:#1d1d1d;
+                font-size: 1.9rem;
+                margin-bottom: 1.2rem;
+                @include responsive(md){
+                    font-size: 1.5rem;
+                    margin-bottom: .6rem;
+                }
+            }
+            .modal-report-time-flex{
+                display: flex;
+                gap: .8rem;
+                margin-bottom: 1.5rem;
+                @include responsive(md){
+                    gap:.4rem;
+                    margin-bottom: .75rem;
+                }
+                dl{
+                    flex:1;
+                    padding: 1.5rem;
+                    border-radius: .4rem;
+                    @include responsive(md){
+                        padding: 0.75rem;
+                        border-radius: .2rem;
+                    }
+                    dt{
+                        font-size: 1.3rem;
+                        margin-bottom: 1rem;
+                        @include responsive(md){
+                            font-size: 1.1rem;
+                        }
+                    }
+                    dd{
+                        font-size: 1.5rem;
+                        color:#1d1d1d;
+                        @include responsive(md){
+                            font-size: 1.2rem;
+                        }
+    
+                    }
+                }
+                &.caution{
+                    dl{
+                        background: rgba(246,165,35,0.08);
+                        dt{
+                            color:#e59a21;
+                        }
+                    }
+                    
+                }
+                &.warning{
+                    dl{
+                        background: rgba(210,44,44,0.08);
+                        dt{
+                            color:#d22c2c;
+                        }
+                    }
+                }
+            }
+            
+            .modal-report-city{
+                color:#717171;
+                @include responsive(md){
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+}
+
+#modal-Announce-Info{
+    .modal--inner{
+        width: 100%;
+        max-width: 995px;
+    }
+    .modal--content{
+        position: relative;
+        height: 60rem;
+        &.p0{
+            padding: 0;
+        }
+        .btn-tab-wrap02{
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+        }
+        .criteria-box{
+            position: absolute;
+            right: 3.5rem;
+            bottom: 3.5rem;
+            border: 1px solid #555555;
+            border-radius: .4rem;
+            .criteria-box-basics{
+                display: flex;
+                gap:.7rem;
+                align-items: center;
+                padding: .8rem 1.5rem;
+                cursor: pointer;
+                @include responsive(md){
+                    font-size: 1.2rem;
+                }
+                .criteria-box-btn{
+                    width: 1.5rem;
+                    height: 1.4rem;
+                    background-image: url("../images/modal/modal-weather-btn.png");
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    transform: rotate(180deg);
+                    
+                }
+            }
+            .criteria-box-active{
+                display: none;
+            }
+            &.active{
+                padding: 2rem 1.5rem;
+                border-radius: .6rem;
+                border: 1px solid #c6c6c6;
+                min-width: 46rem;
+                @include responsive(md){
+                    position: absolute;
+                    bottom: 0rem;
+                    left: 0rem;
+                    margin: 2rem;
+                    min-width: auto;
+                    width: calc(100% - 4rem);
+                }
+                .criteria-box-active{
+                    display: block;
+                }
+                .criteria-box-basics{
+                    padding: 0;
+                    .criteria-box-btn{
+                        position: absolute;
+                        right: 1.5rem;
+                        top: 2.3rem;
+                        transform: rotate(0deg);
+                    }
+                    span{
+                        display: none;
+                    }
+                }
+            }
+            h3{
+                font-size: 1.9rem;
+                color:#1d1d1d;
+                margin-bottom: 1.2rem;
+                @include responsive(md){
+                    font-size: 1.5rem;
+                }
+            }
+            dl{
+                dt{
+                    font-size: 1.5rem;
+                    color:#1d1d1d;
+                    margin-bottom: .7rem;
+                    @include responsive(md){
+                        font-size: 1.2rem;
+                        margin-bottom: .3.5rem;
+                    }
+                }
+                dd{
+                    table{
+                        th{
+                            span{
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-bottom: .2rem   ;
+                                margin-left: .3rem;
+                                width: 1.2rem;
+                                height: 1.2rem;
+                            }
+                        }
+                        th,td{
+                            padding: 1rem;
+                            font-size: 1.3rem;
+                            @include responsive(md){
+                                font-size: 1.1rem;
+                            }
+                        }
+                        
+                    }
+                }
+                &+dl{
+                    margin-top: 1.2rem;
+                    @include responsive(md){
+                        margin-top: .6rem;
+                    }
+                }
+            }
+        }
     }
 }
