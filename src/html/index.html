@@ -156,7 +156,7 @@
     </aside>
 
     <div id="fullpage">
-        <section class="section sc1 section-1">
+        <section class="section sc1 section-1 first-active">
             <div class="image"></div>
             <div class="text">
                 <span>오래된 미래, <b>기후위기</b></span>
@@ -649,8 +649,10 @@
         $('#fullpage').fullpage({
             autoScrolling: true,
             navigation: true,
-            licenseKey: 'FB75CBCF-678A49C4-88C3BA08-F5F9BEEA',
             slidesNavigation: false,
+            afterRender: function(){
+                $('.section-1 ').removeClass('first-active');
+            },
             onLeave: function(origin, destination, direction){
                 const currentIndex = origin;
                 //console.log(currentIndex);
@@ -698,6 +700,34 @@
             $('.busi-contents-wrap').slick(busiOptions);
         }
         busiSlide()
+
+                
+        // Swiper 슬라이더 초기화
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 'auto',
+            spaceBetween: 15,
+            centeredSlides: true,
+            autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            grabCursor: true
+            },
+            breakpoints: {
+            769: {
+                spaceBetween: 30
+            }
+            },
+            pagination: {
+            el: '.custom-pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return `<span class="${className}"></span>`;
+            }
+            }
+        });
+
+
 
     </script>
 

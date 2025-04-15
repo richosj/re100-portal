@@ -131,7 +131,7 @@ html, body {
       transform: scale(1.2);
       transition: all 0.8s ease-out;
     }
-
+    &:not(.first-active){
     &.active {
       .image {
         opacity: 1;
@@ -143,6 +143,7 @@ html, body {
         filter: blur(0);
         transform: scale(1);
       }
+    }
     }
   }
 
