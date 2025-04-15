@@ -1,5 +1,5 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 .container{
     margin: 0 auto;
@@ -14,7 +14,7 @@
 .gutter-xxl{
     padding-left: var(--gutter);
     padding-right: var(--gutter);
-    @include responsive(xxl){
+    @include fn.responsive(xxl){
         padding-left: var(--gap-sm);
         padding-right: var(--gap-sm);
     }

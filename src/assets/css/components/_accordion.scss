@@ -1,11 +1,11 @@
 @use '../utils/var';
-@use '../utils/function';
+@use '../utils/function' as fn;
 
 .accordion{
     &--item{
         margin-bottom: 2rem;
         border: 1px solid #f8f8f8;
-        @include responsive(md){
+        @include fn.responsive(md){
             margin-bottom: 1rem;
         }
         &:last-child{
@@ -37,7 +37,7 @@
         transition: background-color 0.2s ease;
         border-radius: 1.2rem;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        @include responsive(md){
+        @include fn.responsive(md){
             padding: 1rem;
         }
     }
@@ -59,7 +59,7 @@
         background-position: center;
         background-repeat: no-repeat;
         border-radius: 50%;
-        @include responsive(md){
+        @include fn.responsive(md){
             width: 2rem;
             height: 2rem;
             background-size: 12px;
@@ -86,7 +86,7 @@
         &--body{
             box-shadow: inset 0px 11px 8px -10px #CCC, inset 0px -11px 8px -10px #CCC; 
             padding: 2rem;
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 1.2rem;
                 padding: 1.5rem;
             }

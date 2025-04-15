@@ -24,7 +24,7 @@
         <div class="sub--wrap">
             <div class="sub--wrap--inner">
                 <div class="sub--ti">
-                    <h3>환경스코어</h3>
+                    <h3>에너지 현황</h3>
                     <div class="sub--ti--util">
                         <button class="share"><span class="sr-only">공유</span></button>
                         <button class="print"><span class="sr-only">인쇄</span></button>
@@ -33,60 +33,76 @@
             </div>
             <div class="sub--wrap--inner">
                 <ul class="tabs mb40" data-js="tabNav">
-                    <li class="tab-item">
-                        <button class="" type="button" data-id="tabnav1">
+                    <li class="tab-item active">
+                        <button type="button" data-id="tabnav1">
                             전력공급현황
                         </button>
                     </li>
-                    <li class="tab-item active">
-                        <button class="" type="button" data-id="tabnav2">
+                    <li class="tab-item">
+                        <button type="button" data-id="tabnav2">
                             에너지 소비 현황
                         </button>
                     </li>
                     <li class="tab-item">
-                        <button class="" type="button" data-id="tabnav3">
+                        <button type="button" data-id="tabnav3">
                             태양광 잠재량
                         </button>
                     </li>
                     <li class="tab-item">
-                        <button class="" type="button" data-id="tabnav4">
+                        <button type="button" data-id="tabnav4">
                             태양광 설비현황
                         </button>
                     </li>
                     <li class="tab-item">
-                        <button class="" type="button" data-id="tabnav5">
+                        <button type="button" data-id="tabnav5">
                             에너지 바우처 발급 현황
                         </button>
                     </li>
-                </ul> 
+                </ul>
             </div>
 
             <!-- 전력공급현황 start-->
             <div data-toggle-id="tabnav1" class="toggle-hidden">
-                
-            </div>
-            <!-- 전력공급현황 end-->
-
-            <!-- 에너지 소비 현황  start-->
-            <div data-toggle-id="tabnav2" class="">
                 <div class="sub--wrap--inner">
                     <div class="sub--Info--wrap">
-                        <div class="sub--Info--box mb80">
-                            <h3 class="fz25 mb20">에너지 소비 현황</h3>
-                            <p class="fz19">
-                                에너지 소비 현황
-                            </p>
-                            <div class="btn-wrap">
-                                <a href="">에너지 소비 현황 바로가기<i class="icon ico-link-arrow"></i></a>
+                        <div class="page-intro">
+                            <div class="page-intro-header">
+                                <strong>전력공급현황</strong>
+                            </div>
+                            <div class="page-intro-content">
+                                내용
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- 전력공급현황 end-->
+
+            <!-- 에너지 소비 현황  start-->
+            <div data-toggle-id="tabnav2" class="toggle-hidden">
+                <div class="sub--wrap--inner">
+                    <div class="sub--Info--wrap">
+                        <div class="page-intro">
+                            <div class="page-intro-header">
+                                <strong>에너지 소비 현황</strong>
+                                <div class="page-intro-links">
+                                    <a href="#">에너지 소비 현황 바로가기</a>
+                                </div>
+                            </div>
+                            <div class="page-intro-content">
+                                에너지 소비 현황
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="sub--Data--wrap">
                     <div class="sub--wrap--inner">
                         <div class="">
-                            <h3 class="fz25 mb18">경기도 환경스코어</h3>
-                            <p class="mb30 fz17">각 시군별 기본 현황 및 에너지 소비 현황의 과거추이를 살펴봅니다.</p>
+                            <div class="heading-container">
+                                <h3 class="heading-title">경기도 환경스코어</h3>
+                                <h3 class="heading-desc">각 시군별 기본 현황 및 에너지 소비 현황의 과거추이를 살펴봅니다.</h3>
+                            </div>
                             <div class="data--box--flex">
                                 <div class="data--box--flex--left data--box">
 
@@ -180,13 +196,384 @@
 
             <!-- 태양광 잠재량 start-->
             <div data-toggle-id="tabnav3" class="toggle-hidden">
-                
+                <div class="sub--wrap--inner mb80">
+                    <div class="page-intro">
+                        <div class="page-intro-header">
+                            <strong>태양광 잠재량이란?</strong>
+                            <div class="page-intro-links">
+                                <a href="#">경기기후지도 태양광 잠재량 바로가기</a>
+                            </div>
+                        </div>
+                        <div class="page-intro-content">
+                            태양광 잠재량은 잠재량에 영향을 주는 요인을 어디까지 고려하느냐에 따라<br>
+                            이론적, 기술적, 시장 잠재량으로 구분하고 있습니다.
+                        </div>
+                    </div>
+
+                    <div class="solar-poten">
+                        <div class="col">
+                            <div class="notice-container">
+                                <div class="notice-title">폭염예보</div>
+                                <div class="notice-content">
+                                    지표면에 도달하는 태양광 에너지를 어떠한 제약 없이<br>
+                                    모두 활용할 때의 에너지 양
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="action-button-group">
+                                    <button class="action-button" type="button" aria-pressed="true">
+                                        <span class="action-button-label">지리적 제약</span>
+                                        <i class="action-button-icon icon-1"></i>
+                                    </button>
+                                    <button class="action-button" type="button" aria-pressed="true">
+                                        <span class="action-button-label">높은 설비 투자비</span>
+                                        <i class="action-button-icon icon-2"></i>
+                                    </button>
+                                    <button class="action-button" type="button" aria-pressed="true">
+                                        <span class="action-button-label">천연기념물 서식지</span>
+                                        <i class="action-button-icon icon-3"></i>
+                                    </button>
+                                </div>
+
+                                <div class="data-container">
+                                    <img src="./assets/images/sub/map-1.png" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="notice-container">
+                                <div class="notice-title">기술적 잠재량</div>
+                                <div class="notice-content">
+                                    기술적 제약 (예: 태양광의 설비효율)과 지리적 제약 (예: 급경사지)을 반영할 때의 잠재량
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="action-button-group">
+                                    <button class="action-button" type="button" aria-pressed="false">
+                                        <span class="action-button-label">지리적 제약</span>
+                                        <i class="action-button-icon icon-1"></i>
+                                    </button>
+                                    <button class="action-button" type="button" aria-pressed="false">
+                                        <span class="action-button-label">높은 설비 투자비</span>
+                                        <i class="action-button-icon icon-2"></i>
+                                    </button>
+                                    <button class="action-button" type="button" aria-pressed="false">
+                                        <span class="action-button-label">천연기념물 서식지</span>
+                                        <i class="action-button-icon icon-3"></i>
+                                    </button>
+                                </div>
+
+                                <div class="data-container">
+                                    <img src="./assets/images/sub/map-2.png" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="notice-container">
+                                <div class="notice-title">시장 잠재량</div>
+                                <div class="notice-content">
+                                    경제적 제약 (예: 비용 경쟁력), 정책적 제약 (예: 개발불가 지역)을 반영할 때의 잠재량
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="action-button-group">
+                                    <button class="action-button" type="button" aria-pressed="false">
+                                        <span class="action-button-label">지리적 제약</span>
+                                        <i class="action-button-icon icon-1"></i>
+                                    </button>
+                                    <button class="action-button" type="button" aria-pressed="false">
+                                        <span class="action-button-label">높은 설비 투자비</span>
+                                        <i class="action-button-icon icon-2"></i>
+                                    </button>
+                                    <button class="action-button" type="button" aria-pressed="false">
+                                        <span class="action-button-label">천연기념물 서식지</span>
+                                        <i class="action-button-icon icon-3"></i>
+                                    </button>
+                                </div>
+
+                                <div class="data-container">
+                                    <img src="./assets/images/sub/map-3.png" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sub--Data--wrap">
+                    <div class="sub--wrap--inner">
+                        <div class="heading-container">
+                            <h3 class="heading-title">경기도 에너지 현황</h3>
+                        </div>
+
+                        <div class="data--box--flex">
+                            <div class="data--box--flex--left data--box">
+                                데이터?
+                            </div>
+                            <div class="data--box--flex--right data--box solar-poten-data">
+                                <div class="data--box--head"><h4>경기도 화성시</h4></div>
+
+                                <div class="card-grid-container">
+                                    <div class="card-grid-header">
+                                        <div class="titles">
+                                            <strong>이론적 잠재량</strong>
+                                            <button class="toggle-tooltip" title="안내말 열림" aria-pressed="false"
+                                            data-title="이론적 잠재량"
+                                            data-content="이론적 잠재량이란 이론적 잠재량이란"
+                                            onclick="openTooltip({ target: this, width: '300px', height: 'auto' })"
+                                            >안내말</button>
+                                        </div>
+                                        <div class="utils">
+                                            <a href="#" class="btn sm border-darkgray">바로가기</a>
+                                        </div>
+                                    </div>
+                                    <ul class="flex-box md">
+                                        <li>
+                                            <dl>
+                                                <dt>설치면적</dt>
+                                                <dd>10,199 <span>km<sup>2</sup></span></dd>
+                                            </dl>
+                                        </li>
+                                        
+                                        <li>
+                                            <dl>
+                                                <dt>설비용량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>발전량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-grid-container">
+                                    <div class="card-grid-header">
+                                        <div class="titles">
+                                            <strong>기술적 잠재량</strong>
+                                            <button class="toggle-tooltip" title="안내말 열림" aria-pressed="false"
+                                            data-title="기술적 잠재량"
+                                            data-content="기술적 잠재량"
+                                            onclick="openTooltip({ target: this, width: '300px', height: 'auto' })"
+                                            >안내말</button>
+                                        </div>
+                                        <div class="utils">
+                                            <a href="#" class="btn sm border-darkgray">바로가기</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="round-title">
+                                        <strong>지상형 태양광</strong>
+                                    </div>
+                                    <ul class="flex-box md">
+                                        <li>
+                                            <dl>
+                                                <dt>설치면적</dt>
+                                                <dd>10,199 <span>km<sup>2</sup></span></dd>
+                                            </dl>
+                                        </li>
+                                        
+                                        <li>
+                                            <dl>
+                                                <dt>설비용량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>발전량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+
+                                    <div class="round-title">
+                                        <strong>옥상형 태양광</strong>
+                                    </div>
+                                    <ul class="flex-box md">
+                                        <li>
+                                            <dl>
+                                                <dt>설치면적</dt>
+                                                <dd>10,199 <span>km<sup>2</sup></span></dd>
+                                            </dl>
+                                        </li>
+                                        
+                                        <li>
+                                            <dl>
+                                                <dt>설비용량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>발전량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="card-grid-container">
+                                    <div class="card-grid-header">
+                                        <div class="titles">
+                                            <strong>시장 잠재량</strong>
+                                            <button class="toggle-tooltip" title="안내말 열림" aria-pressed="false"
+                                            data-title="시장 잠재량"
+                                            data-content="시장 잠재량"
+                                            onclick="openTooltip({ target: this, width: '300px', height: 'auto' })"
+                                            >안내말</button>
+                                        </div>
+                                        <div class="utils">
+                                            <a href="#" class="btn sm border-darkgray">바로가기</a>
+                                        </div>
+                                    </div>
+
+                                    <ul class="flex-box md">
+                                        <li>
+                                            <dl>
+                                                <dt>설치면적</dt>
+                                                <dd>10,199 <span>km<sup>2</sup></span></dd>
+                                            </dl>
+                                        </li>
+                                        
+                                        <li>
+                                            <dl>
+                                                <dt>설비용량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>발전량</dt>
+                                                <dd>41.447 <span>MW</span></dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <!-- 태양광 잠재량  end-->
 
             <!-- 태양광 설비현황 start-->
-            <div data-toggle-id="tabnav4" class="toggle-hidden">
-            
+            <div data-toggle-id="tabnav4">
+                <div class="sub--wrap--inner mb80">
+                    <div class="page-intro">
+                        <div class="page-intro-header">
+                            <strong>경기도 태양광 설비현황이란?</strong>
+                            <div class="page-intro-links">
+                                <a href="#">경기기후지도 태양광 설비현황 바로가기</a>
+                            </div>
+                        </div>
+                        <div class="page-intro-content">
+                            경기도에 설치된 모든 태양광 설비 위치와 발전량(예측)을 한눈에 확인 할 수 있습니다. <br>
+                            등록된 계량 설비부터 등록되지 않은 미계량 설비의 위치와 발전 예측량까지 경기도의 모든 태양광 발전량을 제공합니다.
+                        </div>
+                    </div>
+
+                    <div class="notice-container">
+                        <div class="notice-title">태양광 설비의 위치와 발전량 제공</div>
+                        <div class="notice-content">
+                            경기도는 등록된 모든 설비의 위치와 발전량 정보를 제공합니다.
+                        </div>
+                    </div>
+
+                    <div class="notice-container">
+                        <div class="notice-title">AI 기술을 통해 모든 태양광 설비 확인</div>
+                        <div class="notice-content">
+                            경기도는 국토지리정보원에서 제공받은 고해상도 항공사진을 활용하여 태양광 패널을 AI기술을 통해 탐지하였습니다. <br>
+                            그간 경기도와 시군에 등록된 태양광 설비뿐만 아니라 등록되지 않은 설비를 모두 탐지하여 제공합니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub--Data--wrap">
+                    <div class="sub--wrap--inner">
+                        <div class="heading-container">
+                            <h3 class="heading-title">경기도 에너지 현황</h3>
+                        </div>
+
+                        <div class="data--box--flex">
+                            <div class="data--box--flex--left data--box">
+                                <div class="title-content">
+                                    <div class="text-title">타이틀 영역</div>
+                                    <div class="desc">
+                                        클릭하시면 해당 데이터를 지도에서<br>
+                                        확인하실 수 있습니다.
+                                    </div>
+                                </div>
+
+                                <div class="solar-status">
+                                    <div class="status-card" role="button" aria-pressed="false">
+                                        <span class="label before-bg-1">총 발전소 개소</span>
+                                        <div class="value">
+                                            <span class="number">5,353</span>
+                                            <span class="unit">개소</span>
+                                        </div>
+                                    </div>
+                                    <div class="status-card" role="button" aria-pressed="false">
+                                        <span class="label before-bg-2">연간 총 발전량</span>
+                                        <div class="value">
+                                            <span class="note">(예측)</span>
+                                            <span class="number">5,353</span>
+                                            <span class="unit">MWh</span>
+                                        </div>
+                                    </div>
+                                    <div class="status-card" role="button" aria-pressed="false">
+                                        <span class="label before-bg-3">계량 발전소 개소</span>
+                                        <div class="value">
+                                            <span class="number">5,353</span>
+                                            <span class="unit">개소</span>
+                                        </div>
+                                    </div>
+                                    <div class="status-card" role="button" aria-pressed="false">
+                                        <span class="label before-bg-1">연간 계량 발전량</span>
+                                        <div class="value">
+                                            <span class="number">1,669,730</span>
+                                            <span class="unit">MWh</span>
+                                        </div>
+                                    </div>
+                                    <div class="status-card" role="button" aria-pressed="false">
+                                        <span class="label before-bg-4">미계량 발전소 개소</span>
+                                        <div class="value">
+                                            <span class="number">23,979</span>
+                                            <span class="unit">개소</span>
+                                        </div>
+                                    </div>
+                                    <div class="status-card" role="button" aria-pressed="true">
+                                        <span class="label before-bg-5">연간 미계량 발전량</span>
+                                        <div class="value">
+                                            <span class="note">(예측)</span>
+                                            <span class="number">1,669,730</span>
+                                            <span class="unit">MWh</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="data--box--flex--right data--box">
+                                <div class="data--box--head"><h4>경기도 화성시</h4></div>
+
+                                데이터?
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <!-- 태양광 설비현황  end-->
 
@@ -194,21 +581,26 @@
             <div data-toggle-id="tabnav5" class="toggle-hidden">
                 <div class="sub--wrap--inner">
                     <div class="sub--Info--wrap">
-                        <div class="sub--Info--box mb80">
-                            <h3 class="fz25 mb20">에너지 바우처란?</h3>
-                            <p class="fz19">
+                        <div class="page-intro">
+                            <div class="page-intro-header">
+                                <strong>에너지 바우처란?</strong>
+                                <div class="page-intro-links">
+                                    <a href="#">에너지 바우처 바로가기</a>
+                                </div>
+                            </div>
+                            <div class="page-intro-content">
                                 에너지 사용이 어려운 가구를 위해 전기, 가스 난방비 등을 지원하는 국가 정책입니다.<br>
                                 신청은 가까운 주민센터나 공식 웹사이트에서 가능하며, 동·하절기 에너지 지원을 받을 수 있습니다. 
-                            </p>
-                            <div class="btn-wrap">
-                                <a href="">에너지 바우처 바로가기<i class="icon ico-link-arrow"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="sub--Data--wrap">
                     <div class="sub--wrap--inner">
-                        <h3 class="fz25 mb35">경기도 환경스코어</h3>
+                        <div class="heading-container">
+                            <h3 class="heading-title">경기도 환경스코어</h3>
+                        </div>
                         <div class="data--box--flex">
                             <div class="data--box--flex--left">
                                 <div class="data--box data--box--row row">
@@ -254,6 +646,7 @@
         "page_main": true
     })
     </section>
-</body>
 
-</html>
+    <div id="tooltip-root"></div>
+
+</body></html>

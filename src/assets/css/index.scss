@@ -1,8 +1,8 @@
 
-@import 'utils/var';
-@import 'layout/index';
-@import 'components/index';
-@import 'pages/index';
+@use 'utils/var';
+@use 'layout/index';
+@use 'components/index' as index2;
+@use 'pages/index' as index3;
 
 .sr-only{
     position: absolute;
@@ -113,3 +113,12 @@ $max-cols: 12; // 최대 컬럼 수 설정, 필요하면 수정해
         grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
     }
 }
+
+.w-full{width: 100%;}
+@for $i from 0 through 200 {
+  .h-#{$i*5},
+  .w-#{$i*5}{
+    width: #{$i*5}px;
+  }
+}
+.w-auto{width: auto;}

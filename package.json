@@ -1,11 +1,13 @@
 {
   "name": "RE100-Serivce",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "gulp --gulpfile gulpfile.mjs",
     "clean": "gulp clean"
   },
+
   "author": "",
   "license": "ISC",
   "description": "",

@@ -1,30 +1,78 @@
 
+@use '../utils/var';
+@use '../utils/function' as fn;
+
 .sc4{
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../images/main/sc4-bg.png) no-repeat 50% 50%;
-    background-size: cover;
-    @include responsive(lg){
+    position: relative;
+    background: #000;
+    overflow: hidden;
+    .sc-container{
+        position: relative;
+        z-index: 2;
+    }
+    &.active{
+        .image{
+            transform: scale(1);
+        }
+        h2{
+            opacity: 1;
+            transform: translateY(0px);
+            filter: blur(0px);
+        }
+        .text-group{
+            opacity: 1;
+            transform: translateY(0px);
+            filter: blur(0px);
+        }
+        .sc4-slide{
+            transform: translateY(0);
+            filter: blur(0px);
+            opacity: 1;
+        }
+    }
+    .image{
+        width: 100%;height: 100%;
+        background: url(../images/main/sc4-bg.png) no-repeat 50% 50%;
+        background-size: cover;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        transform: scale(1.2);
+        transition: all 0.8s ease-out;
+    }
+
+    @include fn.responsive(lg){
         height: auto;
         padding: 80px 0;
     }
-    @include responsive(md){
+    @include fn.responsive(md){
         padding: 40px 0;
     }
     h2{
         color: #fff;
         font-size: 60px;
+        opacity: 0;
+        transform: translateY(100px);
+        filter: blur(10px);
+        transition: all 1.2s ease-out;
         @media (max-width:1450px) {
             font-size: 40px;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 30px;
         }
     }
     .text-group{
+        opacity: 0;
+        transform: translateY(-100px);
+        filter: blur(10px);
+        transition: all 1.2s 0.2s ease-out;
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
@@ -39,7 +87,7 @@
             @media (max-width:1440px) {
                 font-size: 18px;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 12px;
             }
         }
@@ -50,7 +98,7 @@
             @media (max-width:1440px) {
                 padding-top: 30px;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 display: grid;
                 gap: 0;
                 grid-template-columns: repeat(3,minmax(0,1fr));
@@ -67,7 +115,7 @@
                 @media (max-width:1440px) {
                     font-size: 16px;
                 }
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 12px;
                     gap: 0 6px;
                 }
@@ -78,7 +126,7 @@
                     width: 17px;
                     height: 17px;
                     transition: all 0.25s;
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         width: 12px;height: 12px;
                         background-size: cover;
                     }
@@ -99,6 +147,11 @@
     display: flex;
     gap: 0 2.1%;
     padding-top: 80px;
+    opacity: 0;
+    transform: translateY(-100px);
+    filter: blur(10px);
+    transition: all 1.2s 0.4s ease-out;
+    
     @media (max-width:1024px) {
         display: block;
         padding-top: 10px;
@@ -140,7 +193,7 @@
             background-color: #fff;
             overflow: hidden;
             border-radius: 12px;
-            @include responsive(md){
+            @include fn.responsive(md){
                 padding: 10px;
             }
             .thumb{
@@ -151,7 +204,7 @@
                 overflow: hidden;
                 border-radius: 12px;
                 @media (max-width:1024px) {
-                    padding-bottom: 22.25%;
+                    padding-bottom: 48.25%;
                 }
             }
             .detail{
@@ -161,7 +214,7 @@
                     display: block;
                     font-size: 25px;
                     padding: 40px 0 20px;
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         font-size: 12px;
                         padding: 15px 0 10px;
                     }
@@ -169,7 +222,7 @@
                 div{
                     line-height: 1.45;
                     font-size: 15px;
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         font-size: 11px;
                     }
                 }
@@ -198,7 +251,7 @@
             justify-content: center;
             padding-top: 25px;
             gap:0 16px;
-            @include responsive(md){
+            @include fn.responsive(md){
                 padding-top: 20px;
             }
             .custom-pagination{
@@ -229,7 +282,7 @@
         }
         .swiper-slide{
             width: 330px;
-            @include responsive(md){
+            @include fn.responsive(md){
                 width: 55%;
             }
             &.swiper-slide-active{
@@ -244,7 +297,7 @@
             a{
                 position: relative;
                 height: 387px;
-                @include responsive(md){
+                @include fn.responsive(md){
                     height: auto;
                     padding-bottom: 35px;
                 }

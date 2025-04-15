@@ -1,23 +1,26 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 .form-control{
     position: relative;
-    border-radius: 0.6rem;
-    border: 1px solid #c6c6c6;
+    border-radius: 0.4rem;
+    border: 1px solid #555555;
     height: 3.2rem;
     padding: 0 1rem;
     background: #fff;
     color:#555555;
-    @include responsive(md){
+    @include fn.responsive(md){
         font-size: 1.2rem;
     }
     &::placeholder{
         font-size: 1.2rem;
     }
+    &.md{
+        height: 4rem;
+    }
     &.lg{
         height: 4.8rem;
-        @include responsive(md){
+        @include fn.responsive(md){
             display: inline-block;
             height: 4rem;
             line-height: 4rem;
@@ -88,6 +91,11 @@
 select{
     appearance:none;
     background:#fff url('../images/common/select-arrow.svg') no-repeat right 10px center !important;
+    background-size: 1.2rem auto!important;
+    &.form-control{
+        min-width:11rem;
+        padding-right: 2.5rem;
+    }
 }
 
 .form-type{
@@ -96,7 +104,7 @@ select{
         position: relative;
         font-size: 1.7rem;
         margin-bottom: 1.1rem;
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 1.3rem;
         }
         span{
@@ -109,7 +117,7 @@ select{
     dd{
         color:#1d1d1d;
         font-size: 1.5rem;
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 1.1rem;
         }
     }
@@ -121,7 +129,7 @@ select{
     align-items: center;
     position: relative;
     gap: 0 1rem;
-    @include responsive(lg){
+    @include fn.responsive(lg){
         gap: 0 0.7rem;
     }
     input{
@@ -140,7 +148,7 @@ select{
         background: #fff;
         overflow: hidden;
         transition: all 0.25s;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             width: 1.6rem;
             height: 1.6rem;
         }
@@ -161,10 +169,10 @@ select{
     span{
         color: #555555;
         font-size: 1.5rem;
-        @include responsive(xl){
+        @include fn.responsive(xl){
             font-size: clamp(1.3rem, 1.5vw, 1.7rem);
         }
-        @include responsive(lg){
+        @include fn.responsive(lg){
             font-size: clamp(1.4rem, 1.5vw, 1.5rem);
         }
     }
@@ -190,10 +198,10 @@ select{
     span span{
         color: #007ab4;
         font-size: 1.9rem;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             font-size: 1.4rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 1.2rem;
         }
     }
@@ -260,10 +268,10 @@ input:checked + label:after {
     padding: 2rem;
     overflow-y: auto;
     width: 100%;
-    @include responsive(xl){
+    @include fn.responsive(xl){
         padding: 1.5rem;
     }
-    @include responsive(lg){
+    @include fn.responsive(lg){
         font-size: 1.4rem;
     }
 }

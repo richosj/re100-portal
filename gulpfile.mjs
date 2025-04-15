@@ -5,7 +5,6 @@ import { deleteSync } from 'del';
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import cached from 'gulp-cached';
-import cleanCss from 'gulp-clean-css';
 import concat from 'gulp-concat';
 import fileInclude from 'gulp-file-include';
 import plumber from 'gulp-plumber';
@@ -18,108 +17,75 @@ import * as sass from 'sass';
 const sassCompiler = gulpSass(sass);
 const server = browserSync.create();
 
-
 const paths = {
-  includeHtml: 'src/html/include/**/*.html',
   html: 'src/html/**/*.html',
+  includeHtml: 'src/html/include/**/*.html',
   scss: 'src/assets/css',
   js: 'src/assets/js/**/*.js',
   vendorJs: 'src/assets/js/vendor/**',
-  images: 'src/assets/images/**/*',
-  fonts: 'src/assets/fonts/**/*',  // 폰트 경로 추가
+  images: 'src/assets/images/**/*.{jpg,jpeg,png,svg}',
+  fonts: 'src/assets/fonts/**/*',
   dist: 'dist',
   distCss: 'dist/assets/css',
   distJs: 'dist/assets/js',
   distVendorJs: 'dist/assets/js/vendor',
   distImages: 'dist/assets/images',
-  distFonts: 'dist/assets/fonts',  // 배포 폰트 경로 추가
+  distFonts: 'dist/assets/fonts',
 };
 
+const separateFiles = ['src/assets/js/main.js'];
 
-// Clean task
-function clean() {
-  return new Promise((resolve) => {
-    deleteSync([paths.dist]);
-    resolve();
-  });
+// 공통 오류 방지 및 sourcemaps + sass + postcss 처리 함수
+function compileSass(src, outName, minify = false) {
+  return gulp.src(src, { allowEmpty: true })
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(sassCompiler().on('error', sassCompiler.logError))
+    .pipe(postCss([autoprefixer(), ...(minify ? [cssnano()] : [])]))
+    .pipe(rename(outName)) // 이게 없으면 원래 파일명/경로 유지됨
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.distCss)) // 절대 경로로 지정
+    .pipe(server.stream());
 }
 
-// HTML task
+
+// Clean
+function clean() {
+  deleteSync([paths.dist]);
+  return Promise.resolve();
+}
+
+// HTML
 function html() {
   return gulp.src([paths.html, `!${paths.includeHtml}`])
     .pipe(plumber())
-    .pipe(fileInclude({ 
-      prefix: '@@', 
-      basepath: '@file', 
-      context: {
-        page_main: false,
-        page_name: null,
-        page__name: null,
-        title: null,
-        menuTitle: null
-      } 
-    })) 
+    .pipe(fileInclude({ prefix: '@@', basepath: '@file' }))
     .pipe(cached('html'))
     .pipe(gulp.dest(paths.dist))
     .pipe(server.stream());
 }
 
-// SCSS task
+// SCSS 관련 task
 function styles() {
-  return gulp.src(`${paths.scss}/index.scss`, { allowEmpty: true })
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sassCompiler().on('error', sassCompiler.logError))
-    .pipe(postCss([autoprefixer()]))  // cssnano() 제거
-    .pipe(rename('styles.css'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.distCss))
-    .pipe(server.stream());
+  return compileSass(`${paths.scss}/index.scss`, 'styles.css');
 }
-
-// Minified CSS task
 function minifyStyles() {
-  return gulp.src(`${paths.scss}/index.scss`, { allowEmpty: true })  // 경로 변경
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sassCompiler().on('error', sassCompiler.logError))
-    .pipe(postCss([autoprefixer(), cssnano()]))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.distCss))
-    .pipe(server.stream());
+  return compileSass(`${paths.scss}/index.scss`, { suffix: '.min' }, true);
 }
-
-
-// CSS Reset task
+function slickStyles() {
+  return compileSass(`${paths.scss}/slick.scss`, 'slick.css');
+}
 function cssReset() {
-  return gulp.src(`${paths.scss}/reset.scss`, { allowEmpty: true })
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(sassCompiler().on('error', sassCompiler.logError))
-    .pipe(postCss([autoprefixer(), cssnano()]))
-    .pipe(rename('reset.css'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.distCss));
+  return compileSass(`${paths.scss}/reset.scss`, 'reset.css', true);
 }
 
-// Minified CSS Reset task
-function minifyCssReset() {
-  return gulp.src(`${paths.distCss}/reset.css`, { allowEmpty: true })
-    .pipe(cleanCss())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.distCss));
-}
-
-const separateFiles = [
-  'src/assets/js/main.js'
-];
-// JavaScript task
+// JS
 function scripts() {
-  return gulp.src([paths.js, 
-    `!${paths.vendorJs}`,
-    ...separateFiles.map(file => `!${file}`)
-  ])
+  return gulp.src([
+      paths.js,
+      `!${paths.vendorJs}`,
+      ...separateFiles.map(file => `!${file}`)
+    ])
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(babel())
@@ -131,11 +97,9 @@ function scripts() {
     .pipe(server.stream());
 }
 
-// Separate files task
-function createSeparateTasks() {
+function separateScripts() {
   return separateFiles.map(file => {
-    const taskName = `script-${file.split('/').pop().replace('.js', '')}`;
-    gulp.task(taskName, () => {
+    return function separate() {
       return gulp.src(file)
         .pipe(plumber())
         .pipe(sourcemaps.init())
@@ -144,54 +108,58 @@ function createSeparateTasks() {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.distJs))
         .pipe(server.stream());
-    });
-    return taskName;
+    };
   });
 }
 
-// Vendor JavaScript task
+// Vendor JS
 function vendors() {
   return gulp.src(paths.vendorJs)
     .pipe(gulp.dest(paths.distVendorJs));
 }
 
-// Images task
+// Assets
 function images() {
-  return gulp.src([`${paths.images.replace(/\\/g, '/')}/**/*.{jpg,jpeg,png,svg}`], { encoding: false })
-  .pipe(gulp.dest(paths.distImages));
+  return gulp.src(paths.images, { encoding: false })
+    .pipe(gulp.dest(paths.distImages));
 }
-
-// Fonts task
 function fonts() {
   return gulp.src(paths.fonts)
     .pipe(gulp.dest(paths.distFonts));
 }
 
-// BrowserSync task
+// Serve
 function serve(done) {
-  server.init({
-    server: {
-      baseDir: paths.dist
-    }
-  });
+  server.init({ server: { baseDir: paths.dist } });
 
-  gulp.watch(paths.html, gulp.series(html, (done) => { server.reload(); done(); }));
+  gulp.watch([paths.html], html);
   gulp.watch(`${paths.scss}/**/*.scss`, gulp.series(styles, minifyStyles));
   gulp.watch(paths.js, scripts);
+  gulp.watch(separateFiles, gulp.parallel(...separateScripts()));
   gulp.watch(paths.vendorJs, vendors);
   gulp.watch(paths.images, images);
-  gulp.watch(paths.fonts, fonts); // 폰트 경로 감시 추가
+  gulp.watch(paths.fonts, fonts);
+
   done();
 }
 
-// Initial build task
-const initialBuild = gulp.series(cssReset, minifyCssReset);
+// Build
+const build = gulp.series(
+  clean,
+  cssReset,
+  gulp.parallel(
+    html,
+    gulp.series(styles, minifyStyles),
+    slickStyles,
+    vendors,
+    scripts,
+    ...separateScripts(),
+    images,
+    fonts
+  )
+);
 
-// Build task
-const build = gulp.series(clean, initialBuild, gulp.parallel(html, gulp.series(styles, minifyStyles), vendors, scripts, gulp.parallel(createSeparateTasks()), images, fonts)); // 폰트 작업 추가
-
-// Default task
+// Default
 export default gulp.series(build, serve);
-
 export { clean };
 

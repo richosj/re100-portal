@@ -1,7 +1,11 @@
+@use '../utils/var';
+@use '../utils/function' as fn;
+
 .sc2{
     position: relative;
     nav{
-        display: flex;
+        opacity: 0;
+        display: none;
         align-items: center;
         justify-content: center;
         padding-top: 100px;
@@ -80,7 +84,7 @@
             padding-top: 12.5vh;
             display: flex;
             gap:0 95px;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 padding-top: 4rem;
                 flex-direction: column;
                 gap: 4rem 0;
@@ -103,7 +107,7 @@
                         background: url(../images/main/sc2-arw.png) no-repeat 50% 50%;
                         transition: all 0.15s;
                     }
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         font-size: 14px;
                         &::after{
                             width: 12px;height: 12px;
@@ -117,7 +121,7 @@
                     padding-top: 20px;
                     line-height: 1.34;
                     transition: all 0.25s;
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         font-size: 12px;
                         
                     }
@@ -145,39 +149,52 @@
     position: relative;
 }
 .busi-motion{
-    height: 200vw;
-    overflow: clip;
+    //height: 200vw;
+    //overflow: clip;
     background-color: #000;
 }
 .main-inner{
     width: 100%;
-    max-width: 1600px;
-    height: 100%;
+    //max-width: 1600px;
+    height: 100vh;
     position: relative;
-    padding: 0px 136px;
+    //padding: 0px 136px;
     margin: 0px auto;
 }
 .busi-motion .busi-con {
     height: 100vh;
-    position: sticky;
+    //position: sticky;
     top: 0px;
 }
 .busi-motion .busi-con .busi-contents-wrap {
     width: 100vw;
-    position: absolute;
-    top: 0px;
-    left: calc(661px - 50vw);
+    //position: absolute;
+    //top: 0px;
+    //left: calc(661px - 50vw);
 }
 .busi-contents-wrap .busi-content {
     width: 100vw;
-    display: inline-flex;
-    justify-content: flex-end;
-    flex-direction: row-reverse;
-    align-items: center;
-    position: absolute;
-    left: 0px;
+    height: 100vh;
+    // display: inline-flex;
+    // justify-content: flex-end;
+    // flex-direction: row-reverse;
+    // align-items: center;
+    //position: absolute;
+    //left: 0px;
+    //gap: 168px;
     background-color: #000;
-    gap: 168px;
+    
+}
+@media (min-width: 1025px) {
+    .busi-g{
+        display: inline-flex;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 168px;
+    }
 }
 .busi-contents-wrap .busi-content .busi-info {
     position: relative;
@@ -193,10 +210,10 @@
 
 @media (max-width: 1025px) {
     .main-busi .busi-motion {
-        padding-top: 100px;
-        height: auto;
-        min-height: 820px;
-        padding-bottom: 75px;
+        // padding-top: 100px;
+        // height: auto;
+        // min-height: 820px;
+        // padding-bottom: 75px;
     }
 }
 @media (max-width: 1025px) {
@@ -271,6 +288,7 @@
         min-height: 270px;
         height: calc(-600px + 100vh);
         border-radius: 20px;
+        background-size: cover;
     }
 }
 @media (max-width: 768px) {

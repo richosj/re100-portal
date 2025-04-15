@@ -1,16 +1,17 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 #wrap{
     overflow: hidden;
-    @include responsive(md){
+    @include fn.responsive(md){
         touch-action: pan-y;
         min-width: auto;
     }
 }
 
+
 .main--quick{
-    @include responsive(xl){
+    @include fn.responsive(xl){
         margin: 0 2%;
     }
 }
@@ -18,32 +19,32 @@
     width: 1170px;
     margin: auto;
     padding: 12rem 0 30rem;
-    @include responsive(xl){
+    @include fn.responsive(xl){
         width: 100%;
     }
-    @include responsive(lg){
+    @include fn.responsive(lg){
         padding: 10% 0;
     }
-    @include responsive(md){
+    @include fn.responsive(md){
     }
     &--ti{
         text-align: center;
         margin-bottom: 7.5em;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             margin-bottom: 5rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             margin-bottom: 3rem;
         }
         p{
             font-weight: bold;
             color:#fff;
             font-size: 4rem;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 font-size: 3rem;
                 margin-bottom: 1rem;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 2rem;
             }
         }
@@ -51,10 +52,10 @@
             font-weight: bold;
             color:#fff;
             font-size: 8rem;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 font-size: 5rem;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 3rem;
             }
         }
@@ -63,7 +64,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem 1rem;
-        @include responsive(md){
+        @include fn.responsive(md){
             grid-template-columns: repeat(1, 1fr);
         }
     }
@@ -74,10 +75,10 @@
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: center;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             background-size: cover;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             height: 20rem;
         }
         a{
@@ -86,7 +87,7 @@
             height: 100%;
             color:#fff;
             padding: 17.5rem 4rem 4rem 4rem;
-            @include responsive(md){
+            @include fn.responsive(md){
                 padding: 2rem;
             }
             & *{
@@ -95,11 +96,11 @@
             h4{
                 font-size: 3.2rem;
                 margin-bottom: 3rem;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     font-size: 2.5rem;
                     margin-bottom: 2rem;
                 }
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 2rem;
                     margin-bottom: 1rem;
                 }
@@ -107,10 +108,10 @@
             p{
                 font-size: 1.7rem;
                 line-height: 1.5;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     font-size: 1.5rem;
                 }
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 1.3rem;
                 }
             }
@@ -137,7 +138,7 @@
                 width: 4rem;
                 height: 4rem;
                 transition: all .5s;
-                @include responsive(md){
+                @include fn.responsive(md){
                     right: 2rem;
                     bottom: 2rem;
                 }
@@ -154,7 +155,7 @@
         }
         &:hover{
             background-size: 110%;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 background-size: cover;
             }
         }
@@ -210,11 +211,11 @@
     padding: 10% 0;
     width: 148rem;
     margin: 0 2rem;
-    @include responsive(lg){
+    @include fn.responsive(lg){
         padding: 15% 0;
         width: auto;
     }
-    @include responsive(md){
+    @include fn.responsive(md){
         width: 90%;
         margin: 0;
     }
@@ -222,7 +223,7 @@
         a{
             &:after{
                 right: -5rem;
-                @include responsive(md){
+                @include fn.responsive(md){
                     right: -3rem;
                 }
             }
@@ -238,11 +239,11 @@
         font-size: 8rem;
         font-weight: bold;
         margin-bottom: 3rem;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             font-size: 6rem;
             margin-bottom: 2rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 3rem;
         }
     }
@@ -250,17 +251,17 @@
         font-size: 2rem;
         line-height: 2;
         margin-bottom: 5rem;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             font-size: 1.5rem;
             margin-bottom: 3rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
         &.txt-lg{
             font-size: 4rem;
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 1.5rem;
             }
         }
@@ -271,10 +272,10 @@
     a{
         position: relative;
         font-size: 3.2rem;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             font-size: 2.1rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 1.5rem;
         }
         &.skyblue{
@@ -300,12 +301,12 @@
             height: 4rem;
             transition: all 0.5s;
             background-size: cover;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 width: 3rem;
                 height: 3rem;
                 right: 0;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 width: 2rem;
                 height: 2rem;
                 right: 1rem;
@@ -325,20 +326,20 @@
         font-size: 12rem;
         font-weight: bold;
         margin-bottom: 3rem;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             font-size: 8rem;
             margin-bottom: 2rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             font-size: 4rem;
             margin-bottom: 1rem;
         }
         .char{
             font-size: 12rem;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 font-size: 8rem;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 4rem;
             }
         }
@@ -347,10 +348,10 @@
 .txt-earth{
     font-size: 12rem;
     font-weight: bold;
-    @include responsive(lg){
+    @include fn.responsive(lg){
         font-size: 8rem;
     }
-    @include responsive(md){
+    @include fn.responsive(md){
         font-size: 4rem;
     }
 }
@@ -388,7 +389,7 @@
         width: 144rem;
         display: flex;
         align-items: center;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             flex-direction: column;
             width: 100%;
         }
@@ -397,7 +398,7 @@
         font-size: 2rem;
         width: 24rem;
         line-height: 2;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             font-size: 1.5rem;
             width: 100%;
             text-align: center;
@@ -407,11 +408,11 @@
     .dlt{
         display: flex;
         flex:1;
-        @include responsive(lg){
+        @include fn.responsive(lg){
             width: 100%;
             margin-bottom: 1rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
@@ -421,7 +422,7 @@
             position: relative;
             flex:1;
             text-align: center;
-            @include responsive(md){
+            @include fn.responsive(md){
                 width: 32%;
                 flex:none;
             }
@@ -436,7 +437,7 @@
                     background-image: url(../images/main/slash.png); 
                     width: 10px;
                     height: 32px;
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         display: none;
                     }
                 }
@@ -444,17 +445,17 @@
             dt{
                 font-size: 1.9rem;
                 margin-bottom: 1rem;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     font-size: 1.4rem;
                 }
             }
             dd{
                 font-size: 4rem;
                 font-weight: bold;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     font-size: 2rem;
                 }
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 1.8rem;
                 }
             }
@@ -487,11 +488,11 @@
                 font-size: 8rem;
                 font-weight: bold;
                 margin-bottom: 2rem;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     font-size: 4rem;
                     margin-bottom: 1rem;
                 }
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 2rem;
                 }
             }
@@ -499,10 +500,10 @@
                 color:#fff;
                 font-size: 2rem;
                 line-height: 1.5;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     font-size: 1.5rem;
                 }
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 1.2rem;
                 }
             }
@@ -512,7 +513,7 @@
                 display: flex;
                 align-items:  flex-start;
                 justify-content: space-between;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     flex-direction: column;
                     width: 100%;
                 }
@@ -521,7 +522,7 @@
                     border-left: 1px solid rgba(255,255,255,0.5);
                     &:nth-child(1){
                         border-left: none;
-                        @include responsive(lg){
+                        @include fn.responsive(lg){
                             width: 100%;
                         }
                     }
@@ -529,23 +530,23 @@
                         width: 60%  ;
                         padding: 0 5rem;
                         margin: 0 4rem;
-                        @include responsive(lg){
+                        @include fn.responsive(lg){
                             margin: 0;
                             padding: 0;
                             width: 100%;
                         }
-                        @include responsive(md){
+                        @include fn.responsive(md){
                         }
                     }
                     &:nth-child(3){
                         width: 31rem;
                         text-align: right;
-                        @include responsive(lg){
+                        @include fn.responsive(lg){
                             text-align:left;
                             width: 100%;
                         }
                     }
-                    @include responsive(lg){
+                    @include fn.responsive(lg){
                         height: auto;
                         border-left: none;
                         width: 100%;
@@ -553,11 +554,11 @@
                     h4{
                         font-size: 2rem;
                         font-weight: normal;
-                        @include responsive(lg){
+                        @include fn.responsive(lg){
                             font-size: 1.5rem;
                             margin-bottom: 1rem;
                         }
-                        @include responsive(md){
+                        @include fn.responsive(md){
                             font-size: 1.2rem;
                         }
                         strong{
@@ -570,16 +571,16 @@
                         justify-content: space-between;
                         height: 100%;
                         width: 100%;
-                        @include responsive(lg){
+                        @include fn.responsive(lg){
                             margin-bottom: 3rem;
                         }
                         dt{
                             font-size: 4rem;
-                            @include responsive(lg){
+                            @include fn.responsive(lg){
                                 font-size: 3rem;
                                 margin-bottom: 2rem;
                             }
-                            @include responsive(md){
+                            @include fn.responsive(md){
                                 font-size: 2rem;
                                 margin-bottom: 1rem;
                             }
@@ -587,10 +588,10 @@
                         dd{
                             font-size: 1.7rem;
                             line-height: 1.5;
-                            @include responsive(lg){
+                            @include fn.responsive(lg){
                                 font-size: 1.5rem;
                             }
-                            @include responsive(md){
+                            @include fn.responsive(md){
                                 font-size: 1.3rem;
                             }
                         }   
@@ -599,10 +600,10 @@
                         position: relative;
                         font-size: 3.2rem;
                         color:#fff;
-                        @include responsive(lg){
+                        @include fn.responsive(lg){
                             font-size: 2.5rem;
                         }
-                        @include responsive(md){
+                        @include fn.responsive(md){
                             font-size: 2rem;
                         }
                         &:after{
@@ -617,13 +618,13 @@
                             transition: all 0.5s;
                             background-image: url(../images/main/link_quick_btn_white.png);
                             background-size: cover;
-                            @include responsive(lg){
+                            @include fn.responsive(lg){
                                 width: 3rem;
                                 height: 3rem;
                                 right: -4rem;
                                 top: 0rem;
                             }
-                            @include responsive(md){
+                            @include fn.responsive(md){
                                 width: 2rem;
                                 height: 2rem;
                                 right: -3rem;
@@ -649,13 +650,13 @@
         width: 144rem;
         height: 100vh;
         margin: auto;
-        @include responsive(xl){
+        @include fn.responsive(xl){
             width: 90%;
         }
-        @include responsive(lg){
+        @include fn.responsive(lg){
             padding: 20% 0 10%;            
         }
-        @include responsive(md){
+        @include fn.responsive(md){
         }
     }
 }

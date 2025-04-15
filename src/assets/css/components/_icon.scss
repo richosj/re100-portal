@@ -1,5 +1,6 @@
-@import '../utils/var';
-@import '../utils/function';
+@use "sass:list";
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 $icons: (
     del: (1.4rem, 1.4rem),
@@ -25,12 +26,12 @@ $icons: (
     background-position: 0 0;
     background-size: contain;
     @each $name, $dimensions in $icons {
-        $width: nth($dimensions, 1);
-        $height: nth($dimensions, 2);
+        $width: list.nth($dimensions, 1);
+        $height: list.nth($dimensions, 2);
         &-#{$name}{
             &._white {
                 @include icon("../images/icon/icon-#{$name}-white.png", $width, $height);
-                @include responsive(md){
+                @include fn.responsive(md){
                     width: 1.2rem;height: 1.2rem;
                     background-size: cover;
                     background-position: 50% 50%;

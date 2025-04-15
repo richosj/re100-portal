@@ -1,13 +1,21 @@
 @charset "UTF-8";
-@import 'utils/var';
+@use 'utils/var';
 
 
 :root {
     --font-name: "Pretendard";
     --font-size: 1.5rem;
+    --font-sub-size: 1.7rem;
     --font-weight: 400;
     --font-color: #000000;
-    --line-height: 24px;    
+    --line-height: 24px;
+    --text-main : #029b58;
+    --text-sub : #2b316a;
+    --text-sub2 : #717171;
+    --border-color: #d8d8d8;
+    --border-color-hover : #029c58;
+    --border-radius: 6px;
+    --content-space: 120px;
 }
 
 

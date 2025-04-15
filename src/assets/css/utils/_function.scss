@@ -1,4 +1,5 @@
 @use "sass:map";
+@use './var' as var;
 
 %message-shared {
     border: 1px solid #ccc;
@@ -7,13 +8,13 @@
 }
 
 @mixin responsive($breakpoint) {
-    @media (max-width: map-get($grid-breakpoints,$breakpoint)) {
+    @media (max-width: map.get(var.$grid-breakpoints,$breakpoint)) {
         @content;
     }
 }
 
 @mixin responsive2($breakpoint) {
-    @media (min-width: map-get($grid-breakpoints,$breakpoint)) {
+    @media (min-width: map.get(var.$grid-breakpoints,$breakpoint)) {
         @content;
     }
 }
@@ -27,8 +28,8 @@
 }
 @mixin responsive-gap($breakpoint) {
     @if map-has-key($gap, $breakpoint) {
-        padding-left: map-get($gap, $breakpoint);
-        padding-right: map-get($gap, $breakpoint);
+        padding-left: map.get($gap, $breakpoint);
+        padding-right: map.get($gap, $breakpoint);
     }
 }
 @mixin set-background($image-url, $size: auto, $position: 0 0, $repeat: no-repeat) {

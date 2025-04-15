@@ -1,7 +1,20 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
-
+#btnTop {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 60px;
+    right: 60px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    background: url(../images/main/btnTop.png) no-repeat 50% 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 30px 0 30px 0;
+  }
 .skip{
     position: relative;
     z-index: 1000;
@@ -25,11 +38,22 @@
     }
 }
 
+
 #header{
     z-index: 100;
     position: relative;
     transition: all .3s;
-    @include responsive(md){
+    background-color: #fff;
+    &::before{
+        content:"";
+        position: absolute;
+        left: 0;top: 0;
+        width: 100%;
+        display: block;
+        height: .3rem;
+        background: linear-gradient(to right, #2b316a, #039b58);
+    }
+    @include fn.responsive(md){
         position: fixed;
         top: 0;
         left: 0;
@@ -50,7 +74,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                @include responsive(md){
+                @include fn.responsive(md){
                     height: 4.1rem;
                     padding: 0 2rem;
                 }
@@ -68,7 +92,7 @@
                     span{
                         color:#717171;
                         font-size: 1.3rem;
-                        @include responsive(md){
+                        @include fn.responsive(md){
                             display: none;
                         }
                     }
@@ -84,7 +108,7 @@
             height: 4rem;
             background:url('../images/common/bi.svg') no-repeat;
             background-size: contain;
-            @include responsive(md){
+            @include fn.responsive(md){
                 width: 11.8rem;
                 height: 2rem;
             }
@@ -99,7 +123,7 @@
             gap:2rem;
             border-top: 1px solid rgba(255,255,255,.2);
             transition: all .3s;
-            @include responsive(md){
+            @include fn.responsive(md){
                 display: none;
             }
             &.sub--gnb--wrap{
@@ -154,7 +178,8 @@
                 background-size: contain;
             }
         }
-        &.gnb-open{
+        &.gnb-open,
+        &.up{
             background: #fff;
             border-bottom: 1px solid #d8d8d8;
             .header-container{
@@ -198,10 +223,10 @@
             background: #fafafa;
         }
         .gnbBg{
-            height:33rem; opacity:1.0;filter:Alpha(opacity=100);            
+            height:33rem; opacity:1.0;filter:Alpha(opacity=100);
         }
         .gnb--dep02{
-            height: 33rem; opacity:1.0;filter:Alpha(opacity=100);
+            height: 32.9rem; opacity:1.0;filter:Alpha(opacity=100);
             padding-top: 4rem;
             visibility:visible;
             transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out 0.2s;
@@ -209,15 +234,16 @@
     }
     .gnbBg{
         z-index: 89;
-        overflow:hidden; 
-        position:absolute; 
-        left:0; top:14.1rem; 
-        width:100%; 
-        height:0; 
-        background:#fff; 
+        overflow:hidden;
+        position:absolute;
+        left:0; top:14.1rem;
+        width:100%;
+        height:0;
+        background:#e9eaf0;
         opacity:0;
         transition:height 0.3s ease-in-out, opacity 0.3s ease-in-out;
         .gnbBg-inner{
+            display: none;
             position: relative;
             width: 144rem;
             margin: auto;
@@ -232,7 +258,7 @@
 }
 
 .mm-open{
-    @include responsive(md){
+    @include fn.responsive(md){
     #header{
         &.main-header{
             .header-container{
@@ -268,7 +294,7 @@
             .gnb--dep01{
                 &>a{
                     padding: 0 5rem;
-                    @include responsive(xl){
+                    @include fn.responsive(xl){
                         padding: 0 1rem;
                     }
                 }
@@ -277,6 +303,7 @@
         .gnb--dep01{
             position: relative;
             flex: 1;
+            
             &>a{
                 display: flex;
                 align-items: center;
@@ -286,7 +313,7 @@
                 transition: all .5s;
                 color:#000;
                 justify-content: center;
-                @include responsive(xl){
+                @include fn.responsive(xl){
                     line-height: 1;
                     font-size: 1.5rem;
                     padding:0 1rem;
@@ -299,9 +326,21 @@
                 }
             }
             &.on{
+                > a{
+                    color: #029c58;
+                }
                 .gnb--dep02{
                     transition: all .3s;
-                    background: #fafafa;
+                    //background: #fafafa;
+                    background: linear-gradient(to bottom, #1d8162, #2a4f6a);
+                    a{
+                        color: #fff;
+                        opacity: .5;
+                        &:hover,
+                        &:focus{
+                            opacity: 1;
+                        }
+                    }
                     &:after{
                         width: 100%;
                         left: 0;
@@ -318,13 +357,13 @@
             transition: all 0.2s 0s;
             transition-delay: 0s;
             border-right: 1px solid #eeeeee;
-            &:after{
-                content:"";
-                position:absolute;
-                left:50%; top:-1px; width:0;height:3px;
-                background-color:#0e4194;
-                transition: all .3s;
-            }
+            // &:after{
+            //     content:"";
+            //     position:absolute;
+            //     left:50%; top:-1px; width:0;height:3px;
+            //     background-color:#0e4194;
+            //     transition: all .3s;
+            // }
             ul{
                 li{
                     padding-top: 3rem;  
@@ -352,11 +391,11 @@
                             }
                             &:hover{
                                 &:after{
-                                    background-image: url('../images/ico/ico-foot-link-on.png');
+                                    //background-image: url('../images/ico/ico-foot-link-on.png');
                                 }
                             }
                         }
-                        @include responsive(xl){
+                        @include fn.responsive(xl){
                             font-size: 1.3rem;
                         }
                         &:hover,
@@ -398,7 +437,7 @@
     }
     .mobile-button{
         display: none;
-        @include responsive(md){
+        @include fn.responsive(md){
             display: flex;
         }
     }
@@ -417,7 +456,7 @@
 }
 .mm-open{
     #nav{
-        @include responsive(md){
+        @include fn.responsive(md){
             transform: translateX(0%);
             opacity: 1;
         }
@@ -505,3 +544,43 @@
 }
 
 
+
+body:has(.gnb-open){
+    .overlay{
+        display: block;
+        z-index: 10;
+    }
+}
+.overlay{
+    z-index: -1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    
+}
+
+body:has(#fullpage){
+    &:not(.fp-viewing-0){
+        #header{
+            &.main-header{
+                backdrop-filter: blur(40px);
+                -webkit-backdrop-filter: blur(40px);
+                transform: translateY(-100%);
+            }
+        }
+        #header.ups{
+            &.main-header{
+                backdrop-filter: blur(0);
+                -webkit-backdrop-filter: blur(0);
+                transform: translateY(0%);
+            }
+        }
+    }
+    #footer{
+        height: auto !important;
+    }
+}

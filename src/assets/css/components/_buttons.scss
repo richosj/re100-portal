@@ -1,5 +1,5 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 .btn{
     background: #fff;
@@ -27,6 +27,10 @@
         &.round{
             border-radius: 1.6rem;
         }
+        @include fn.responsive(md){
+            font-size: 1.2rem;
+            padding: 0 1rem;
+        }
     }
     &.md{
         display: inline-block;
@@ -38,7 +42,7 @@
         &.round{
             border-radius: 2rem;
         }
-        @include responsive(md){
+        @include fn.responsive(md){
             display: inline-block;
             height: 3.2rem;
             line-height: 3.2rem;
@@ -89,6 +93,10 @@
         border: 1px solid #555555;
         background: transparent;
         color:#555555;
+        &.active{
+            color: #4eab56;
+            border-color: #4eab56;
+        }
     }
     &.border-primary{
         border: 1px solid #164194;
@@ -219,7 +227,7 @@
     color:#2b316a;
     border-radius: 1.6rem;
     background: #fff;
-    @include responsive(md){
+    @include fn.responsive(md){
         font-size: 1.2rem;
     }
 }
@@ -249,7 +257,7 @@
     align-items: center;
     gap: .8rem;
     flex-wrap: wrap;
-    @include responsive(md){
+    @include fn.responsive(md){
         gap: .4rem;
     }
     button{
@@ -259,7 +267,7 @@
         padding: .6rem 1.6rem; 
         font-size: 1.5rem;
         border-radius: .4rem;
-        @include responsive(md){
+        @include fn.responsive(md){
             padding: .3rem .8rem;
             font-size: 1.2rem;
             border-radius: .2rem;

@@ -1,5 +1,5 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 .board--wrap{ 
     &--head{
@@ -21,7 +21,7 @@
                 padding: 1.1rem .5rem;
                 vertical-align: middle;
                 color:#717171;
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 1.1rem;
                 }
             }
@@ -41,7 +41,7 @@
                     color:#1d1d1d;
                     padding: 1.1rem .5rem;  
                     vertical-align: middle;
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         font-size: 1.1rem;
                     }
                 }
@@ -115,7 +115,7 @@
                 outline: none;
                 overflow-y: auto;
                 resize: none;
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 1.2rem;
                 }
             }
@@ -130,7 +130,7 @@
             color:#717171;
             font-size: 1.5rem;
             line-height: 1.5;
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 1.2rem;
             }
         }
@@ -138,7 +138,7 @@
     &--foot{
         text-align: right;
         padding-top: 3.2rem;
-        @include responsive(md){
+        @include fn.responsive(md){
             padding-top: 1.6rem;
         }
     }
@@ -185,7 +185,7 @@
         font-size: 15px;
         height: 60px;
         background: #fafafa;
-        @include responsive(md){
+        @include fn.responsive(md){
            font-size: 11px; 
            height: 40px;
         }
@@ -195,7 +195,7 @@
         box-sizing: border-box;
         padding: 10px;
         color: #666666;
-        @include responsive(md){
+        @include fn.responsive(md){
             padding: 5px;
         }
     }
@@ -203,7 +203,7 @@
         th, td{
             height: 60px;
             text-align: center;
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 11px; 
                 height: 40px;
             }
@@ -213,7 +213,7 @@
     .item_list-title{
         padding-left: 70px;
         text-align: left;
-        @include responsive(md){
+        @include fn.responsive(md){
             padding-left: 20px;
          }
     }
@@ -274,7 +274,7 @@
         padding: 20px 0 20px 35px;
         align-items: center;
         border-bottom: 1px dashed #e1e1e1;
-        @include responsive(md){
+        @include fn.responsive(md){
             padding: 10px;
             flex-direction: column;
             align-items: baseline;
@@ -287,7 +287,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 18px;
                 white-space: inherit;
             }
@@ -297,7 +297,7 @@
             flex: 0 0 50px;
             color:#2149a6;
             font-size: 18px;
-            @include responsive(md){
+            @include fn.responsive(md){
                 flex: auto;
                 font-size: 14px;
             }
@@ -306,14 +306,14 @@
             margin-left: auto;margin-right: 0;flex: 0 0 270px;color: #666666;
             position: relative;
             text-align: center;
-            @include responsive(md){
+            @include fn.responsive(md){
                 flex: 1;
                 font-size: 11px;
             }
             &::after{
                 content: '';width: 1px;height:14px;background: #e1e1e1;position: absolute;left: 0;
                 top: calc(50% - 7px);
-                @include responsive(md){
+                @include fn.responsive(md){
                     display: none;
                 }
             }
@@ -325,7 +325,7 @@
     }
     .board-viwer_text{
         padding:20px 35px;min-height: 30rem;
-        @include responsive(md){
+        @include fn.responsive(md){
             padding:10px 17.5px;min-height: 15rem;
         }
     }
@@ -337,7 +337,7 @@
             border-top: 1px solid #333333;
             padding: 20px 0 20px 35px;
             border-bottom: 1px dashed #e1e1e1;
-            @include responsive(md){
+            @include fn.responsive(md){
                 padding: 10px;
                 align-items: baseline;
                 gap: 5px;
@@ -347,7 +347,7 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 font-size: 22px;
-                @include responsive(md){
+                @include fn.responsive(md){
                     font-size: 18px;
                     white-space: inherit;
                 }
@@ -356,14 +356,14 @@
                 margin-left: auto;margin-right: 0;flex: 0 0 270px;color: #666666;
                 position: relative;
                 text-align: center;
-                @include responsive(md){
+                @include fn.responsive(md){
                     flex: 0 0 70px;
                     font-size: 11px;
                 }
                 &::after{
                     content: '';width: 1px;height:14px;background: #e1e1e1;position: absolute;left: 0;
                     top: calc(50% - 7px);
-                    @include responsive(md){
+                    @include fn.responsive(md){
                         display: none;
                     }
                 }
@@ -372,7 +372,7 @@
         
         p{
             padding:20px 35px;min-height: 30rem;
-            @include responsive(md){
+            @include fn.responsive(md){
                 padding:10px 17.5px;min-height: 15rem;
             }
         }
@@ -397,7 +397,7 @@
             display: block;padding-top: 22px;padding-bottom: 22px;
             display: flex;
             align-items: center;
-            @include responsive(md){
+            @include fn.responsive(md){
                 padding-top: 11px;
                 padding-bottom: 11px;
             }
@@ -407,7 +407,7 @@
             flex: 0 0 140px;
             width: 140px;
             text-align: center;
-            @include responsive(md){
+            @include fn.responsive(md){
                 flex: 0 0 80px;
                 width: 80px;
                 font-size: 11px;
@@ -419,7 +419,7 @@
                 position: relative;
                 top:2px;
                 transform: rotate(135deg);
-                @include responsive(md){
+                @include fn.responsive(md){
                     width: 5px;
                     height: 5px;
                     top: 0;
@@ -431,7 +431,7 @@
             width: 100%;
             flex: 1;
             padding:0 20px;
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size: 12px;
                 padding: 0 10px;
             }
@@ -440,7 +440,7 @@
             flex: 0 0 270px;color: #666666;
             position: relative;
             text-align: center;
-            @include responsive(md){
+            @include fn.responsive(md){
                 flex: 0 0 100px;
                 font-size: 11px;
             }

@@ -1,5 +1,5 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 .list{
     &__square{
@@ -8,15 +8,15 @@
             padding-left: 1.5rem;
             font-size: 1.7rem;
             line-height: 1.25;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 font-size: 1.4rem;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size:clamp(1.2rem,2.08vw,1.4rem)
             }
             +li{
                 margin-top: 1.5rem;
-                @include responsive(md){
+                @include fn.responsive(md){
                     margin-top: 1.2rem;
                 }
             }
@@ -29,7 +29,7 @@
                 position: absolute;
                 left: 0;
                 top: 1rem;
-                @include responsive(md){
+                @include fn.responsive(md){
                     width: 3px;height: 3px;
                     top: 0.5rem;
                 }
@@ -44,11 +44,11 @@
             color: #555;
             text-align: left;
             line-height: 1.25;
-            @include responsive(lg){
+            @include fn.responsive(lg){
                 font-size: 1.4rem;
                 padding-left: 1rem;
             }
-            @include responsive(md){
+            @include fn.responsive(md){
                 font-size:clamp(1.2rem,2.08vw,1.4rem)
             }
             +li{
@@ -64,7 +64,7 @@
                 border-radius: 50%;
                 left: 0;
                 top: 1rem;
-                @include responsive(lg){
+                @include fn.responsive(lg){
                     width: 2px;height: 2px;
                     top: .5rem;
                 }

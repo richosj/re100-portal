@@ -1,5 +1,5 @@
-@import '../utils/var';
-@import '../utils/function';
+@use '../utils/var';
+@use '../utils/function' as fn;
 
 .error-body{
     height: 100%;
@@ -12,7 +12,7 @@
         height: 4rem;
         background:url('../images/common/bi.png') no-repeat;
         margin-bottom: 2rem;
-        @include responsive(md){
+        @include fn.responsive(md){
           width: 17rem;
           height: 3rem;
           background-size: contain;
@@ -21,7 +21,7 @@
     }
     .error-container{
       width: 1280px;
-      @include responsive(xl){
+      @include fn.responsive(xl){
         margin: 0 2rem;
       }
     }
@@ -29,14 +29,14 @@
       text-align: center;
       padding:100px 0;border-radius: 0 0 100px 0;
       border: 16px solid #edf1f4;
-      @include responsive(md){
+      @include fn.responsive(md){
         padding:50px 10px;
       }
       > h2{
         margin: 0;padding: 0px;
         color: #222222;
         font-size: 30px;
-        @include responsive(md){
+        @include fn.responsive(md){
           font-size: 16px;
         }
       }
@@ -44,21 +44,21 @@
       .error-icons{
         text-align: center;
         margin-bottom: 30px;
-        @include responsive(md){
+        @include fn.responsive(md){
          margin-bottom: 15px;
         }
         i{
                 background:url('../images/common/error_404.png') no-repeat;
                 width: 114px;height: 91px;display: inline-block;
                 background-size: cover;
-                @include responsive(md){
+                @include fn.responsive(md){
                   width: 80px;height: 60px;
                 }
         }
       }
   
       .error-infos{margin-top: 35px;line-height: 1.6em;font-size: 16px;color: #666666;
-        @include responsive(md){
+        @include fn.responsive(md){
           margin-top: 17px;
           font-size: 11px;
         }
@@ -66,7 +66,7 @@
       .error-btns{
         margin-top: 60px;display: flex;
         justify-content: center;
-        @include responsive(md){
+        @include fn.responsive(md){
           margin-top: 30px;
           button{
             font-size: 14px;
