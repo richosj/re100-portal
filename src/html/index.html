@@ -156,9 +156,6 @@
     </aside>
 
     <div id="fullpage">
-        
-        
-
         <section class="section sc1 section-1">
             <div class="image"></div>
             <div class="text">
@@ -372,7 +369,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="busi-thumb" style="background-image: url(./assets/images/main/s2-img-01.png);"></div>
+                                    <div class="busi-thumb" style="background-image: url(./assets/images/main/s2-img-04.png);"></div>
                                 </div>
                             </div>
                             
@@ -381,9 +378,6 @@
                         <div class="slide-dot-wrap"></div>
                     </div>
                 </div>
-
-                
-
             </div>
         </section>
 
@@ -658,12 +652,34 @@
             licenseKey: 'FB75CBCF-678A49C4-88C3BA08-F5F9BEEA',
             slidesNavigation: false,
             onLeave: function(origin, destination, direction){
-                
+                const currentIndex = origin;
+                //console.log(currentIndex);
+                if(currentIndex === 4){
+                    const $slick = $('.busi-contents-wrap');
+                    const currentSlide = $slick.slick('slickCurrentSlide');
+                    const totalSlides = $slick.slick('getSlick').slideCount;
+
+                    if (direction === 'down') {
+                        if (currentSlide < totalSlides - 1) {
+                            $slick.slick('slickNext');
+                            return false; // fullpage 아래 섹션 이동 막기
+                        }
+                    }
+
+                    if (direction === 'up') {
+                        if (currentSlide > 0) {
+                            $slick.slick('slickPrev');
+                            return false; // fullpage 위 섹션 이동 막기
+                        }
+                    }
+                }
                 if(direction === 'up'){
                     $('#header').addClass('ups');
                 }else{
                     $('#header').removeClass('ups');
                 }
+
+
             }
         });
 
@@ -679,11 +695,7 @@
                 dots: true,
                 appendDots: $('.busi-con .slide-dot-wrap')
             };
-            
-            
-            
             $('.busi-contents-wrap').slick(busiOptions);
-            
         }
         busiSlide()
 
