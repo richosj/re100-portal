@@ -2,27 +2,28 @@ $(function() {
     var ui = {};
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+    if(!$('#fullpage')){
+        gsap.fromTo("#btnTop",
+            { autoAlpha: 0, y: 50 },
+            {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "body",
+                start: "top -100", // 100px 이상 스크롤되면
+                toggleActions: "play none none reverse",
+                // markers: true
+            }
+            }
+        );
 
-    gsap.fromTo("#btnTop",
-        { autoAlpha: 0, y: 50 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: "body",
-            start: "top -100", // 100px 이상 스크롤되면
-            toggleActions: "play none none reverse",
-            // markers: true
-          }
-        }
-      );
-
-      document.querySelector("#btnTop").addEventListener("click", (e) => {
-        e.preventDefault();
-        gsap.to(window, { scrollTo: 0, duration: 0.8, ease: "power2.out" });
-      });
+        document.querySelector("#btnTop").addEventListener("click", (e) => {
+            e.preventDefault();
+            gsap.to(window, { scrollTo: 0, duration: 0.8, ease: "power2.out" });
+        });
+    }
     
     document.querySelectorAll('[data-js="es-tab"]').forEach(tabContainer => {
         const buttons = tabContainer.querySelectorAll('button');

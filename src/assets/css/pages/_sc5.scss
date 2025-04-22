@@ -164,6 +164,7 @@
         .list{
             display: flex;
             padding-top: 100px;
+            gap: 5%;
             @include fn.responsive(md){
                 padding-top: 15px;
             }

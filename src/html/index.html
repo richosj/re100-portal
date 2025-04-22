@@ -646,6 +646,8 @@
     <!-- JS -->
     
     <script>
+        let lastSlideReached = false;
+
         $('#fullpage').fullpage({
             autoScrolling: true,
             navigation: true,
@@ -655,35 +657,56 @@
             },
             onLeave: function(origin, destination, direction){
                 const currentIndex = origin;
-                //console.log(currentIndex);
-                if(currentIndex === 4){
-                    const $slick = $('.busi-contents-wrap');
-                    const currentSlide = $slick.slick('slickCurrentSlide');
-                    const totalSlides = $slick.slick('getSlick').slideCount;
-
-                    if (direction === 'down') {
-                        if (currentSlide < totalSlides - 1) {
-                            $slick.slick('slickNext');
-                            return false; // fullpage 아래 섹션 이동 막기
-                        }
-                    }
-
-                    if (direction === 'up') {
-                        if (currentSlide > 0) {
-                            $slick.slick('slickPrev');
-                            return false; // fullpage 위 섹션 이동 막기
-                        }
-                    }
+                
+                if(destination != 1){
+                    document.querySelector('#btnTop').classList.add('active')
+                } else {
+                    document.querySelector('#btnTop').classList.remove('active')
                 }
+                if (currentIndex === 4) {
+                        const $slick = $('.busi-contents-wrap');
+                        const currentSlide = $slick.slick('slickCurrentSlide');
+                        const totalSlides = $slick.slick('getSlick').slideCount;
+
+                        // 휠 내려갈 때
+                        if (direction === 'down') {
+                            if (currentSlide < totalSlides - 1) {
+                                $slick.slick('slickNext');
+                                lastSlideReached = false;
+                                return false;
+                            } else {
+                                if (!lastSlideReached) {
+                                    // 마지막 슬라이드 도착 후 첫 번째 휠은 막음
+                                    lastSlideReached = true;
+                                    return false;
+                                } else {
+                                    // 두 번째 휠부터 fullpage 이동 허용
+                                    lastSlideReached = false; // 다음 진입 때 또 막기 위해 초기화
+                                }
+                            }
+                        }
+
+                        // 휠 올릴 때
+                        if (direction === 'up') {
+                            if (currentSlide > 0) {
+                                $slick.slick('slickPrev');
+                                lastSlideReached = false;
+                                return false;
+                            }
+                        }
+                    }
                 if(direction === 'up'){
                     $('#header').addClass('ups');
                 }else{
                     $('#header').removeClass('ups');
                 }
-
-
             }
         });
+
+        document.querySelector('#btnTop').addEventListener('click' , () => {
+            $.fn.fullpage.moveTo(1);
+
+        })
 
         function busiSlide() {
         var busiOptions = {
@@ -726,9 +749,6 @@
             }
             }
         });
-
-
-
     </script>
 
 
